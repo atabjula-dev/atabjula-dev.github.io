@@ -1,0 +1,434 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Akhil Tabjula | Senior Data Engineer</title>
+<meta name="description" content="Akhil Tabjula — Senior Data Engineer with 10+ years building streaming, lakehouse, and ML data platforms on Azure, Databricks, and Snowflake.">
+<meta name="author" content="Akhil Tabjula">
+<meta name="color-scheme" content="dark light">
+<link rel="canonical" href="https://atabjula-dev.github.io/">
+
+<!-- Open Graph / LinkedIn -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://atabjula-dev.github.io/">
+<meta property="og:title" content="Akhil Tabjula | Senior Data Engineer">
+<meta property="og:description" content="10+ years building streaming, lakehouse, and ML data platforms on Azure, Databricks, and Snowflake.">
+<meta property="og:site_name" content="Akhil Tabjula">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Akhil Tabjula | Senior Data Engineer">
+<meta name="twitter:description" content="10+ years building streaming, lakehouse, and ML data platforms on Azure, Databricks, and Snowflake.">
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b1220'/%3E%3Ctext x='32' y='42' font-family='system-ui,Segoe UI,Arial' font-size='28' font-weight='700' text-anchor='middle' fill='%2322d3ee'%3EAT%3C/text%3E%3C/svg%3E">
+
+<style>
+/* ===== Stage 1: structural baseline only (full styling arrives in Stage 2) ===== */
+body { margin: 0; font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; }
+.wrap { max-width: 1100px; margin: 0 auto; padding-inline: 20px; }
+section { padding-block: 48px; }
+.chip { font: inherit; font-size: .85rem; margin: 2px; cursor: pointer; }
+.tooltip[hidden] { display: none; }
+svg { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap nav-row">
+    <a class="brand" href="#top" aria-label="Akhil Tabjula, home">AT</a>
+    <nav aria-label="Primary">
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#capabilities">Capabilities</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <button class="theme-toggle" type="button" aria-label="Switch to light theme">◐</button>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ================= HERO ================= -->
+<section id="top" class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Senior Data Engineer</p>
+    <h1>Akhil Tabjula</h1>
+    <p class="lede">I build streaming, lakehouse, and ML data platforms on Azure, Databricks, and Snowflake — reliable, well-governed, and close enough to decisions to actually move them.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="resume.pdf" download>Download Resume</a>
+      <a class="btn" href="https://www.linkedin.com/in/akhil172" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+
+    <figure class="pipeline" aria-label="Animated data pipeline: Sources to Kafka to Spark and Databricks to Snowflake to Dashboards and ML">
+      <svg id="pipeline-svg" viewBox="0 0 1000 200" role="img" aria-hidden="false">
+        <!-- connectors (packets travel along these in Stage 3) -->
+        <g class="links" fill="none" stroke="currentColor" stroke-width="2" opacity=".35">
+          <path id="lk-0" d="M150 100 H 250"/>
+          <path id="lk-1" d="M350 100 H 450"/>
+          <path id="lk-2" d="M550 100 H 650"/>
+          <path id="lk-3" d="M750 100 H 850"/>
+        </g>
+        <g class="stage" data-stage="0" tabindex="0" aria-describedby="tip-0">
+          <rect x="50" y="60" width="100" height="80" rx="12"/><text x="100" y="105" text-anchor="middle">Sources</text>
+        </g>
+        <g class="stage" data-stage="1" tabindex="0" aria-describedby="tip-1">
+          <rect x="250" y="60" width="100" height="80" rx="12"/><text x="300" y="105" text-anchor="middle">Kafka</text>
+        </g>
+        <g class="stage" data-stage="2" tabindex="0" aria-describedby="tip-2">
+          <rect x="450" y="60" width="100" height="80" rx="12"/><text x="500" y="98" text-anchor="middle">Spark /</text><text x="500" y="118" text-anchor="middle">Databricks</text>
+        </g>
+        <g class="stage" data-stage="3" tabindex="0" aria-describedby="tip-3">
+          <rect x="650" y="60" width="100" height="80" rx="12"/><text x="700" y="105" text-anchor="middle">Snowflake</text>
+        </g>
+        <g class="stage" data-stage="4" tabindex="0" aria-describedby="tip-4">
+          <rect x="850" y="60" width="100" height="80" rx="12"/><text x="900" y="98" text-anchor="middle">Dashboards</text><text x="900" y="118" text-anchor="middle">/ ML</text>
+        </g>
+        <g id="packets"></g>
+      </svg>
+      <div class="tooltips">
+        <p class="tooltip" role="tooltip" id="tip-0" hidden><strong>Sources</strong> POS terminals, ERP and SaaS APIs, third-party vendor feeds, and external event data — each with its own contract and failure modes.</p>
+        <p class="tooltip" role="tooltip" id="tip-1" hidden><strong>Kafka</strong> Re-architected real-time POS ingestion from point-to-point Mulesoft flows to Kafka topics, decoupling producers from downstream consumers.</p>
+        <p class="tooltip" role="tooltip" id="tip-2" hidden><strong>Spark / Databricks</strong> PySpark frameworks, Structured Streaming, and Delta Lake under Unity Catalog for forecasting, segmentation, and ML feature pipelines.</p>
+        <p class="tooltip" role="tooltip" id="tip-3" hidden><strong>Snowflake</strong> Led a Teradata→Snowflake migration; built Snowpipe, Streams &amp; Tasks, and Snowpark pipelines with dbt models on top.</p>
+        <p class="tooltip" role="tooltip" id="tip-4" hidden><strong>Dashboards / ML</strong> Power BI KPI layers, suggested-order recommendation models, and agentic AI apps that answer questions in plain language.</p>
+      </div>
+    </figure>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section id="about">
+  <div class="wrap about-grid">
+    <div>
+      <h2>About</h2>
+      <p>I've worked through several technology cycles — Hive and MapReduce to Spark and Databricks, nightly batch ETL to real-time Kafka pipelines, and most recently agentic AI. The focus hasn't changed: data infrastructure that's reliable, well-governed, and trusted by the people making decisions with it.</p>
+      <p>Today I lead data engineering within an Advanced Analytics organization, where I started as the sole data engineer and built the function into a team.</p>
+      <p class="personal">Off the clock, I collect <strong>coins</strong>, <strong>currency</strong>, and <strong>travel mugs</strong> — each one a small artifact from somewhere, which is roughly how I think about data, too.</p>
+    </div>
+    <div class="stat" aria-label="10+ years of experience">
+      <span class="stat-num"><span class="counter" data-count="10">10</span><span class="plus">+</span></span>
+      <span class="stat-label">years in data engineering</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= EXPERIENCE ================= -->
+<section id="experience">
+  <div class="wrap">
+    <h2>Experience</h2>
+    <ol class="timeline">
+
+      <li>
+        <article class="role filterable" data-tools="databricks snowflake dbt kafka langgraph">
+          <header>
+            <h3>Coca-Cola Southwest Beverages</h3>
+            <p class="meta">Senior Data Engineer · <time datetime="2023-10">Oct 2023</time> – Present</p>
+          </header>
+          <ul>
+            <li>Joined as the sole data engineer, built the data engineering function from the ground up, and now lead a team of four within the Advanced Analytics org.</li>
+            <li>Architected the data foundation for a real-time suggested-order engine that blends historical sales with ML predictions.</li>
+            <li>Built an agentic API orchestrator on LangGraph with vector search over API metadata, so users can find and call the right internal API conversationally.</li>
+          </ul>
+          <div class="chips">
+            <button class="chip" type="button" data-tool="databricks">Databricks</button>
+            <button class="chip" type="button" data-tool="snowflake">Snowflake</button>
+            <button class="chip" type="button" data-tool="dbt">dbt</button>
+            <button class="chip" type="button" data-tool="kafka">Kafka</button>
+            <button class="chip" type="button" data-tool="langgraph">LangGraph</button>
+          </div>
+        </article>
+      </li>
+
+      <li>
+        <article class="role filterable" data-tools="snowflake kafka snowpark dbt snowpipe">
+          <header>
+            <h3>Victoria's Secret</h3>
+            <p class="meta">Senior Data Engineer · <time datetime="2021-06">Jun 2021</time> – <time datetime="2023-09">Sep 2023</time></p>
+          </header>
+          <ul>
+            <li>Led the migration of Teradata batch workloads to Snowflake, re-modeling the transformation layer in dbt.</li>
+            <li>Re-architected real-time POS ingestion from Mulesoft to Kafka, landing events through Snowpark and Snowflake Streams &amp; Tasks with monitoring and automatic reprocessing.</li>
+          </ul>
+          <div class="chips">
+            <button class="chip" type="button" data-tool="snowflake">Snowflake</button>
+            <button class="chip" type="button" data-tool="kafka">Kafka</button>
+            <button class="chip" type="button" data-tool="snowpark">Snowpark</button>
+            <button class="chip" type="button" data-tool="dbt">dbt</button>
+            <button class="chip" type="button" data-tool="snowpipe">Snowpipe</button>
+          </div>
+        </article>
+      </li>
+
+      <li>
+        <article class="role filterable" data-tools="azure databricks spark snowflake">
+          <header>
+            <h3>Inspire Brands</h3>
+            <p class="meta">Data Engineer · <time datetime="2021-01">Jan 2021</time> – <time datetime="2021-05">May 2021</time></p>
+          </header>
+          <ul>
+            <li>Orchestrated Azure Data Factory pipelines unifying in-store transaction and online sales data, with CI/CD for PySpark and Snowflake deployments.</li>
+            <li>Built PySpark frameworks on Databricks for forecasting, customer segmentation, and product-affinity analysis, feeding Snowflake models for retail analytics.</li>
+          </ul>
+          <div class="chips">
+            <button class="chip" type="button" data-tool="azure">Azure Data Factory</button>
+            <button class="chip" type="button" data-tool="databricks">Databricks</button>
+            <button class="chip" type="button" data-tool="spark">PySpark</button>
+            <button class="chip" type="button" data-tool="snowflake">Snowflake</button>
+          </div>
+        </article>
+      </li>
+
+      <li>
+        <article class="role filterable" data-tools="csharp azure dynamics365 sqlserver spark">
+          <header>
+            <h3>Wipro Technologies</h3>
+            <p class="meta">Project Engineer · <time datetime="2014-08">Aug 2014</time> – <time datetime="2019-08">Aug 2019</time></p>
+          </header>
+          <ul>
+            <li>Built features for Dynamics 365 resource scheduling modules using C# and Azure.</li>
+            <li>Designed SQL Server staging and data-lake objects with source-to-target mappings, and ingested data into HDFS with Hive and MapReduce.</li>
+            <li>Supported Spark production workloads on call and mentored junior engineers.</li>
+          </ul>
+          <div class="chips">
+            <button class="chip" type="button" data-tool="csharp">C#</button>
+            <button class="chip" type="button" data-tool="azure">Azure</button>
+            <button class="chip" type="button" data-tool="dynamics365">Dynamics 365</button>
+            <button class="chip" type="button" data-tool="sqlserver">SQL Server</button>
+            <button class="chip" type="button" data-tool="spark">Spark</button>
+          </div>
+        </article>
+      </li>
+
+      <li class="edu">
+        <article>
+          <header><h3>Education</h3></header>
+          <ul>
+            <li><strong>M.S. Data Science</strong> — University of North Texas</li>
+            <li><strong>B.Tech</strong> — KL University</li>
+          </ul>
+        </article>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ================= CAPABILITIES ================= -->
+<section id="capabilities">
+  <div class="wrap">
+    <h2>Capabilities</h2>
+    <p class="hint">Click any tool to highlight where I've used it. Click again to reset.</p>
+    <div class="cap-grid">
+      <section class="cap-group">
+        <h3>Streaming &amp; Ingestion</h3>
+        <div class="chips">
+          <button class="chip" type="button" data-tool="kafka">Kafka</button>
+          <button class="chip" type="button" data-tool="structured-streaming">Structured Streaming</button>
+          <button class="chip" type="button" data-tool="autoloader">Auto Loader</button>
+          <button class="chip" type="button" data-tool="snowpipe">Snowpipe</button>
+          <button class="chip" type="button" data-tool="fivetran">Fivetran</button>
+          <button class="chip" type="button" data-tool="lakeflow">Lakeflow Connect</button>
+        </div>
+      </section>
+      <section class="cap-group">
+        <h3>Lakehouse &amp; Warehouse</h3>
+        <div class="chips">
+          <button class="chip" type="button" data-tool="databricks">Databricks</button>
+          <button class="chip" type="button" data-tool="delta">Delta Lake</button>
+          <button class="chip" type="button" data-tool="unity-catalog">Unity Catalog</button>
+          <button class="chip" type="button" data-tool="snowflake">Snowflake</button>
+          <button class="chip" type="button" data-tool="redshift">Redshift</button>
+        </div>
+      </section>
+      <section class="cap-group">
+        <h3>Transformation &amp; Modeling</h3>
+        <div class="chips">
+          <button class="chip" type="button" data-tool="dbt">dbt</button>
+          <button class="chip" type="button" data-tool="spark">Spark</button>
+          <button class="chip" type="button" data-tool="snowpark">Snowpark</button>
+          <button class="chip" type="button" data-tool="kimball">Kimball</button>
+          <button class="chip" type="button" data-tool="data-vault">Data Vault</button>
+        </div>
+      </section>
+      <section class="cap-group">
+        <h3>Data Quality &amp; Governance</h3>
+        <div class="chips">
+          <button class="chip" type="button" data-tool="great-expectations">Great Expectations</button>
+          <button class="chip" type="button" data-tool="rbac">RBAC</button>
+          <button class="chip" type="button" data-tool="masking">Dynamic masking</button>
+          <button class="chip" type="button" data-tool="cls">Column-level security</button>
+        </div>
+      </section>
+      <section class="cap-group">
+        <h3>AI &amp; ML Data</h3>
+        <div class="chips">
+          <button class="chip" type="button" data-tool="langgraph">LangChain / LangGraph</button>
+          <button class="chip" type="button" data-tool="rag">RAG pipelines</button>
+          <button class="chip" type="button" data-tool="mcp">MCP agents</button>
+          <button class="chip" type="button" data-tool="vector-search">Vector search</button>
+        </div>
+      </section>
+      <section class="cap-group">
+        <h3>Cloud &amp; DevOps</h3>
+        <div class="chips">
+          <button class="chip" type="button" data-tool="azure">Azure</button>
+          <button class="chip" type="button" data-tool="aws">AWS (S3, Glue, Lambda, Batch)</button>
+          <button class="chip" type="button" data-tool="docker">Docker</button>
+          <button class="chip" type="button" data-tool="kubernetes">Kubernetes</button>
+          <button class="chip" type="button" data-tool="github-actions">GitHub Actions</button>
+          <button class="chip" type="button" data-tool="dab">Databricks Asset Bundles</button>
+        </div>
+      </section>
+      <section class="cap-group">
+        <h3>Geospatial</h3>
+        <div class="chips">
+          <button class="chip" type="button" data-tool="postgis">PostGIS</button>
+          <button class="chip" type="button" data-tool="geopandas">GeoPandas</button>
+          <button class="chip" type="button" data-tool="h3">H3</button>
+          <button class="chip" type="button" data-tool="carto">CARTO</button>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROJECTS ================= -->
+<section id="projects">
+  <div class="wrap">
+    <h2>Projects</h2>
+    <p class="hint">Architecture patterns — click a card to expand.</p>
+    <div class="proj-grid">
+
+      <!-- Project 1 -->
+      <article class="project filterable" data-tools="kafka snowpark snowflake snowpipe dbt">
+        <details>
+          <summary>
+            <h3>Real-time POS streaming</h3>
+            <p class="proj-sub">Kafka → Snowpark → Snowflake Streams/Tasks → data marts</p>
+          </summary>
+          <div class="proj-body">
+            <h4>Problem</h4>
+            <p>Point-of-sale data arrived through point-to-point integration flows that were brittle under peak load and hard to replay, so reporting lagged and recoveries meant manual backfills.</p>
+            <h4>Architecture</h4>
+            <svg class="arch" viewBox="0 0 640 140" role="img" aria-label="POS events flow into Kafka, then Snowpark, then Snowflake Streams and Tasks, then data marts">
+              <g class="arch-links" fill="none" stroke="currentColor" stroke-width="2"><path d="M110 70H150"/><path d="M250 70H290"/><path d="M390 70H430"/><path d="M530 70H560"/></g>
+              <g class="arch-nodes">
+                <rect x="10" y="45" width="100" height="50" rx="8"/><text x="60" y="75" text-anchor="middle">POS events</text>
+                <rect x="150" y="45" width="100" height="50" rx="8"/><text x="200" y="75" text-anchor="middle">Kafka</text>
+                <rect x="290" y="45" width="100" height="50" rx="8"/><text x="340" y="75" text-anchor="middle">Snowpark</text>
+                <rect x="430" y="45" width="100" height="50" rx="8"/><text x="480" y="70" text-anchor="middle">Streams</text><text x="480" y="86" text-anchor="middle">&amp; Tasks</text>
+                <rect x="560" y="45" width="70" height="50" rx="8"/><text x="595" y="75" text-anchor="middle">Marts</text>
+              </g>
+            </svg>
+            <h4>Key decisions</h4>
+            <ul>
+              <li>Kafka as the system of record for events, so consumers can replay from offsets instead of re-requesting data from stores.</li>
+              <li>Land raw payloads as VARIANT first, then parse with Snowpark — schema changes don't break ingestion.</li>
+              <li>Streams &amp; Tasks for incremental, CDC-style merges into curated tables; dbt owns the mart layer.</li>
+              <li>Error monitors with automatic reprocessing of failed micro-batches.</li>
+            </ul>
+            <h4>Outcome</h4>
+            <p>Near-real-time sales visibility on a pipeline that recovers on its own, replaces fragile integrations, and gives downstream teams a single trusted feed.</p>
+          </div>
+        </details>
+      </article>
+
+      <!-- Project 2 -->
+      <article class="project filterable" data-tools="snowflake dbt great-expectations databricks delta">
+        <details>
+          <summary>
+            <h3>Catching a silent vendor data rewrite</h3>
+            <p class="proj-sub">Detecting retroactive changes in third-party history</p>
+          </summary>
+          <div class="proj-body">
+            <h4>Problem</h4>
+            <p>A third-party source quietly restated historical records. Loads still succeeded and row counts looked normal, but trends shifted under analysts' feet with no change notice.</p>
+            <h4>Architecture</h4>
+            <svg class="arch" viewBox="0 0 640 160" role="img" aria-label="Vendor feed lands in an immutable raw snapshot, a fingerprint check compares it to prior snapshots, then either promotes to curated tables or quarantines and alerts">
+              <g class="arch-links" fill="none" stroke="currentColor" stroke-width="2"><path d="M110 80H150"/><path d="M270 80H310"/><path d="M430 80C450 80 450 40 470 40"/><path d="M430 80C450 80 450 120 470 120"/></g>
+              <g class="arch-nodes">
+                <rect x="10" y="55" width="100" height="50" rx="8"/><text x="60" y="85" text-anchor="middle">Vendor feed</text>
+                <rect x="150" y="55" width="120" height="50" rx="8"/><text x="210" y="77" text-anchor="middle">Immutable</text><text x="210" y="93" text-anchor="middle">raw snapshot</text>
+                <rect x="310" y="55" width="120" height="50" rx="8"/><text x="370" y="77" text-anchor="middle">Fingerprint</text><text x="370" y="93" text-anchor="middle">diff check</text>
+                <rect x="470" y="15" width="160" height="50" rx="8"/><text x="550" y="45" text-anchor="middle">Promote to curated</text>
+                <rect x="470" y="95" width="160" height="50" rx="8" class="warn"/><text x="550" y="125" text-anchor="middle">Quarantine + alert</text>
+              </g>
+            </svg>
+            <h4>Key decisions</h4>
+            <ul>
+              <li>Keep every vendor delivery as an immutable, append-only snapshot, so history can always be compared and rolled back.</li>
+              <li>Hash closed historical periods on every load; any fingerprint change in a "closed" window is a restatement.</li>
+              <li>Data-quality tests on distributions, not just nulls and counts, gate promotion to curated tables.</li>
+              <li>Quarantine suspect loads and alert owners instead of silently overwriting.</li>
+            </ul>
+            <h4>Outcome</h4>
+            <p>Restatements surface as explicit, reviewable events instead of mystery trend shifts, and the vendor contract now has a technical enforcement point.</p>
+          </div>
+        </details>
+      </article>
+
+      <!-- Project 3 -->
+      <article class="project filterable" data-tools="langgraph rag vector-search mcp azure">
+        <details>
+          <summary>
+            <h3>Agentic API orchestrator</h3>
+            <p class="proj-sub">LangGraph stateful agent + vector search over API metadata</p>
+          </summary>
+          <div class="proj-body">
+            <h4>Problem</h4>
+            <p>Finding the right internal API — endpoint, scope, contract — meant digging through repositories and asking around. Calling it correctly took even more context.</p>
+            <h4>Architecture</h4>
+            <svg class="arch" viewBox="0 0 640 170" role="img" aria-label="Repositories are indexed into an API registry with embeddings; a user asks the chat, a router agent retrieves candidate APIs via vector search, and an execute agent gathers parameters, calls the API and explains the result">
+              <g class="arch-links" fill="none" stroke="currentColor" stroke-width="2"><path d="M110 40H150"/><path d="M110 125H150"/><path d="M250 40H300V100"/><path d="M250 125H300"/><path d="M410 125H450"/><path d="M560 125H600"/></g>
+              <g class="arch-nodes">
+                <rect x="10" y="15" width="100" height="50" rx="8"/><text x="60" y="45" text-anchor="middle">Repos</text>
+                <rect x="150" y="15" width="100" height="50" rx="8"/><text x="200" y="37" text-anchor="middle">API registry</text><text x="200" y="53" text-anchor="middle">+ embeddings</text>
+                <rect x="10" y="100" width="100" height="50" rx="8"/><text x="60" y="130" text-anchor="middle">User chat</text>
+                <rect x="150" y="100" width="100" height="50" rx="8"/><text x="200" y="122" text-anchor="middle">Router</text><text x="200" y="138" text-anchor="middle">agent</text>
+                <rect x="300" y="100" width="110" height="50" rx="8"/><text x="355" y="122" text-anchor="middle">Vector</text><text x="355" y="138" text-anchor="middle">search</text>
+                <rect x="450" y="100" width="110" height="50" rx="8"/><text x="505" y="122" text-anchor="middle">Execute</text><text x="505" y="138" text-anchor="middle">agent</text>
+                <rect x="600" y="100" width="35" height="50" rx="8"/><text x="617" y="130" text-anchor="middle">API</text>
+              </g>
+            </svg>
+            <h4>Key decisions</h4>
+            <ul>
+              <li>An indexing pipeline extracts endpoints, scopes, and contracts from repositories into a central registry, so retrieval stays current without manual docs.</li>
+              <li>LangGraph for explicit state and branching: retrieve → confirm → gather params → execute → explain.</li>
+              <li>The execute agent asks targeted follow-up questions for missing payload fields rather than guessing.</li>
+              <li>Raw API responses are summarized into plain language, with the underlying call shown for transparency.</li>
+            </ul>
+            <h4>Outcome</h4>
+            <p>People describe what they need in plain English and get the right API — and often the answer itself — without knowing where it lives or how to call it.</p>
+          </div>
+        </details>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact">
+  <div class="wrap">
+    <h2>Contact</h2>
+    <p>Open to conversations about data platforms, streaming, and AI-ready data. The best way to reach me:</p>
+    <ul class="contact-list">
+      <li><span class="label">Email</span> <a href="mailto:tabjulaakhil@gmail.com">tabjulaakhil@gmail.com</a></li>
+      <li><span class="label">LinkedIn</span> <a href="https://www.linkedin.com/in/akhil172" target="_blank" rel="noopener">linkedin.com/in/akhil172</a></li>
+      <li><span class="label">Resume</span> <a href="resume.pdf" download>Download PDF</a></li>
+    </ul>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap"><p>© <span id="year">2026</span> Akhil Tabjula · Built as a single HTML file.</p></div>
+</footer>
+
+</body>
+</html>
