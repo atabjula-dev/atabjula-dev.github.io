@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Akhil Tabjula | Senior Data Engineer</title>
-<meta name="description" content="Akhil Tabjula — Senior Data Engineer with 10+ years building streaming, lakehouse, and ML data platforms on Azure, Databricks, and Snowflake.">
+<title>Akhil Tabjula | Data &amp; AI Engineer</title>
+<meta name="description" content="Akhil Tabjula — Data &amp; AI Engineer with 10+ years building streaming, lakehouse, and ML data platforms on Azure, Databricks, and Snowflake, and shipping agentic AI end to end.">
 <meta name="author" content="Akhil Tabjula">
 <meta name="color-scheme" content="dark light">
 <link rel="canonical" href="https://atabjula-dev.github.io/">
@@ -12,12 +12,12 @@
 <!-- Open Graph / LinkedIn -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://atabjula-dev.github.io/">
-<meta property="og:title" content="Akhil Tabjula | Senior Data Engineer">
-<meta property="og:description" content="10+ years building streaming, lakehouse, and ML data platforms on Azure, Databricks, and Snowflake.">
+<meta property="og:title" content="Akhil Tabjula | Data &amp; AI Engineer">
+<meta property="og:description" content="10+ years building streaming, lakehouse, and ML data platforms, and shipping agentic AI end to end, from user problem to production.">
 <meta property="og:site_name" content="Akhil Tabjula">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Akhil Tabjula | Senior Data Engineer">
-<meta name="twitter:description" content="10+ years building streaming, lakehouse, and ML data platforms on Azure, Databricks, and Snowflake.">
+<meta name="twitter:title" content="Akhil Tabjula | Data &amp; AI Engineer">
+<meta name="twitter:description" content="10+ years building streaming, lakehouse, and ML data platforms, and shipping agentic AI end to end, from user problem to production.">
 
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b1220'/%3E%3Ctext x='32' y='42' font-family='system-ui,Segoe UI,Arial' font-size='28' font-weight='700' text-anchor='middle' fill='%2322d3ee'%3EAT%3C/text%3E%3C/svg%3E">
 
@@ -77,6 +77,7 @@
 
 /* ================= Base ================= */
 *, *::before, *::after { box-sizing: border-box; }
+[hidden] { display: none !important; }
 html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-h) + 12px); -webkit-text-size-adjust: 100%; }
 body {
   margin: 0;
@@ -199,7 +200,8 @@ nav { margin-left: auto; }
 .stage:hover rect, .stage:focus-visible rect, .stage.is-active rect {
   stroke: var(--accent); fill: var(--surface-2); filter: drop-shadow(0 0 10px var(--accent-soft));
 }
-.pipeline-caption { margin-top: .9rem; text-align: center; color: var(--muted); font-size: .85rem; }
+.stage text.tool { transition: opacity .35s ease; }
+.stage text.tool.swap { opacity: 0; }
 
 .tooltip {
   position: absolute; z-index: 5; width: min(300px, calc(100vw - 32px)); margin: 0;
@@ -239,7 +241,7 @@ nav { margin-left: auto; }
 :root[data-theme="light"] .chip[aria-pressed="true"] { color: #fff; }
 
 /* ================= Cards (shared) ================= */
-.card, .role, .cap-group, .project {
+.card, .role, .cap-group, .project, .showcase {
   background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow);
   transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease, opacity .3s ease, filter .3s ease;
 }
@@ -280,7 +282,27 @@ nav { margin-left: auto; }
 .cap-group h3 { font-size: 1rem; display: flex; align-items: center; gap: .55rem; margin-bottom: .9rem; }
 .cap-group h3::before { content: ""; width: 8px; height: 8px; border-radius: 2px; background: var(--accent); transform: rotate(45deg); }
 
+/* ================= How I work ================= */
+.approach-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); gap: 1rem; }
+.approach {
+  display: flex; flex-direction: column; padding: 1.3rem 1.4rem;
+  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+.approach:hover { transform: translateY(-4px); box-shadow: var(--shadow-lift); }
+.approach h3 { font-size: 1rem; margin: 0 0 .45rem; }
+.approach p { color: var(--muted); font-size: .93rem; margin: 0 0 1rem; flex: 1; }
+.approach .proof { align-self: flex-start; }
+.approach .proof::after { content: " \2192"; }
+.approach:has(.proof[aria-pressed="true"]) { border-color: var(--accent); }
+
 /* ================= Projects ================= */
+.group-head { margin: 0 0 1rem; }
+.group-head + .proj-grid { margin-bottom: 3rem; }
+.group-title { font-size: 1.15rem; margin: 0 0 .3rem; display: flex; align-items: center; gap: .6rem; }
+.group-title::before { content: ""; width: 18px; height: 2px; background: var(--accent); border-radius: 2px; flex: none; }
+.group-head p { margin: 0; color: var(--muted); font-size: .93rem; max-width: 46rem; }
+#agents { scroll-margin-top: calc(var(--header-h) + 1rem); }
 .proj-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 1rem; align-items: start; }
 .project { overflow: hidden; }
 .project:has(details[open]) { grid-column: 1 / -1; }
@@ -356,6 +378,225 @@ nav { margin-left: auto; }
   .timeline > li::before { left: -22px; width: 14px; height: 14px; }
 }
 
+/* ================= Agentic AI showcases ================= */
+.showcase { padding: clamp(1.25rem, 3vw, 2.25rem); }
+.showcase + .showcase { margin-top: 2rem; }
+.sc-head { margin-bottom: .5rem; }
+.sc-tag {
+  display: inline-block; font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--accent-2); background: var(--accent-2-soft); padding: .25rem .6rem; border-radius: 6px; margin-bottom: .8rem;
+}
+.sc-head h3 { font-size: clamp(1.4rem, 1.1rem + 1.1vw, 1.9rem); margin-bottom: .5rem; }
+.sc-pitch { color: var(--muted); font-size: 1.05rem; max-width: 62rem; }
+.sc-role { color: var(--muted); font-size: .92rem; border-left: 3px solid var(--accent); padding-left: .85rem; margin: 1rem 0; }
+.deep-dive { margin-top: 1.6rem; border-top: 1px solid var(--border); }
+.deep-dive > summary {
+  list-style: none; cursor: pointer; position: relative; padding: 1rem 2rem 0 0;
+  color: var(--accent); font-weight: 600; font-size: .95rem;
+}
+.deep-dive > summary::-webkit-details-marker { display: none; }
+.deep-dive > summary::after {
+  content: ""; position: absolute; right: .4rem; top: 1.25rem; width: 9px; height: 9px;
+  border-right: 2px solid var(--accent); border-bottom: 2px solid var(--accent); transform: rotate(45deg);
+  transition: transform .25s ease;
+}
+.deep-dive[open] > summary::after { transform: rotate(-135deg); top: 1.5rem; }
+.deep-dive > summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 4px; }
+.sc-block { margin-top: 2.1rem; }
+.sc-block > h4, .sc-sub {
+  margin: 0 0 .8rem; font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--accent);
+}
+.sc-block > p { color: var(--muted); }
+.sc-cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 1.25rem 2rem; }
+.mini-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr)); gap: .7rem; }
+.mini { background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: .9rem 1rem; }
+.mini h5 { margin: 0 0 .3rem; font-size: .95rem; }
+.mini p, .mini li { margin: 0; color: var(--muted); font-size: .88rem; }
+.mini ul { margin: .2rem 0 0; padding-left: 1.1em; }
+.mini li::marker { color: var(--accent); }
+.note-list { margin: 0; color: var(--muted); }
+.note-list li { margin-bottom: .35rem; }
+.note-list li::marker { color: var(--accent); }
+.note-list b { color: var(--text); font-weight: 600; }
+
+/* Segmented toggle */
+.seg { display: inline-flex; gap: 4px; padding: 4px; border-radius: 999px; background: var(--surface-2); border: 1px solid var(--border); }
+.seg button {
+  font: inherit; font-size: .85rem; font-weight: 600; cursor: pointer; border: 0; border-radius: 999px;
+  padding: .45rem 1rem; background: transparent; color: var(--muted); transition: background-color .2s, color .2s;
+}
+.seg button[aria-pressed="true"] { background: var(--accent); color: #04121a; }
+:root[data-theme="light"] .seg button[aria-pressed="true"] { color: #fff; }
+
+/* Numbered step chain (before → after) */
+.steps { list-style: none; margin: 1rem 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: .5rem; counter-reset: step; }
+.steps li {
+  counter-increment: step; display: flex; align-items: center; gap: .5rem;
+  padding: .5rem .8rem; border-radius: 10px; background: var(--surface-2); border: 1px solid var(--border); font-size: .88rem;
+}
+.steps li::before {
+  content: counter(step); display: grid; place-items: center; flex: none; width: 1.4rem; height: 1.4rem; border-radius: 50%;
+  background: var(--accent-soft); color: var(--accent); font-size: .72rem; font-weight: 700;
+}
+.steps.manual li::before { background: var(--accent-2-soft); color: var(--accent-2); }
+.steps.anim li { animation: step-in .35s ease-out both; animation-delay: calc(var(--i, 0) * 55ms); }
+@keyframes step-in { from { opacity: 0; transform: translateY(6px); } }
+.steps-caption { margin: .8rem 0 0; color: var(--muted); font-size: .9rem; }
+
+/* Clickable flow nodes (agent graph + pipeline) */
+.lanes { display: grid; gap: .6rem; }
+.lane {
+  display: flex; flex-wrap: wrap; align-items: center; gap: .45rem;
+  padding: .7rem .8rem; border-radius: var(--radius-sm); border: 1px dashed var(--border);
+}
+.lane-label { flex: 0 0 4.6rem; font-size: .7rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.flow-pill { font-size: .82rem; color: var(--muted); padding: .45rem .7rem; border-radius: 999px; border: 1px solid var(--border); }
+.flow { display: flex; flex-wrap: wrap; align-items: center; gap: .45rem; }
+.flow-arrow { color: var(--muted); font-size: .9rem; line-height: 1; }
+.flow-node {
+  font: inherit; font-size: .86rem; font-weight: 600; cursor: pointer; position: relative;
+  display: inline-flex; align-items: center; gap: .45rem; padding: .55rem .8rem; border-radius: 10px;
+  color: var(--text); background: var(--surface-2); border: 1px solid var(--border);
+  transition: border-color .2s, background-color .2s, opacity .25s, box-shadow .2s;
+}
+.flow-node .n { font-size: .72rem; font-weight: 700; color: var(--accent); font-variant-numeric: tabular-nums; }
+.flow-node:hover { border-color: var(--accent); }
+.flow-node[aria-pressed="true"] { border-color: var(--accent); background: var(--accent-soft); box-shadow: 0 0 0 3px var(--accent-soft); }
+.tracing .flow-node:not(.lit) { opacity: .35; }
+.flow-node.lit { border-color: var(--accent); box-shadow: 0 0 14px -3px var(--accent); }
+.flow-node.locked { border-style: dashed; color: var(--muted); }
+.nb:empty { display: none; }
+
+.badge { display: inline-block; font-size: .64rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: .15rem .4rem; border-radius: 5px; line-height: 1.3; }
+.badge.llm { background: rgba(167, 139, 250, .16); color: #a78bfa; }
+.badge.det { background: var(--accent-soft); color: var(--accent); }
+.badge.warn { background: var(--accent-2-soft); color: var(--accent-2); }
+.badge.block, .badge.lock { background: rgba(248, 113, 113, .14); color: #f87171; }
+.badge.ok { background: rgba(52, 211, 153, .14); color: #34d399; }
+:root[data-theme="light"] .badge.llm { color: #6d28d9; background: rgba(109, 40, 217, .1); }
+:root[data-theme="light"] .badge.block, :root[data-theme="light"] .badge.lock { color: #b91c1c; background: rgba(185, 28, 28, .08); }
+:root[data-theme="light"] .badge.ok { color: #047857; background: rgba(4, 120, 87, .1); }
+
+.flow-detail {
+  margin-top: 1rem; padding: 1rem 1.2rem; border-radius: var(--radius-sm);
+  background: var(--bg-2); border: 1px solid var(--border); min-height: 6.5rem;
+}
+.flow-detail h5 { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; margin: 0 0 .4rem; font-size: 1rem; }
+.flow-detail p { margin: 0 0 .7rem; color: var(--muted); font-size: .92rem; }
+.flow-detail p:last-child { margin-bottom: 0; }
+#agent-graph .flow-node { cursor: default; gap: .45rem; }
+#agent-graph .flow-node:hover { border-color: var(--border); }
+#agent-graph .flow-node.lit:hover { border-color: var(--accent); }
+
+/* Sample prompts */
+.prompt-group { display: flex; flex-wrap: wrap; align-items: center; gap: .45rem; }
+.prompt {
+  font: inherit; font-size: .84rem; cursor: pointer; padding: .45rem .8rem; border-radius: 10px;
+  color: var(--text); background: transparent; border: 1px dashed var(--border); transition: border-color .2s, color .2s;
+}
+.prompt::before { content: "\201C"; color: var(--muted); }
+.prompt::after { content: "\201D"; color: var(--muted); }
+.prompt:hover { border-color: var(--accent); }
+.prompt[aria-pressed="true"] { border-style: solid; border-color: var(--accent); color: var(--accent); }
+.trace-line { margin: .8rem 0 0; min-height: 1.4em; font: 12.5px/1.5 ui-monospace, SFMono-Regular, Consolas, monospace; color: var(--muted); }
+.trace-line b { color: var(--accent); font-weight: 600; }
+
+/* Architecture layers */
+.layers { list-style: none; margin: 0; padding: 0; display: grid; gap: .4rem; }
+.layers li {
+  display: grid; grid-template-columns: 1.8rem 1fr; gap: .7rem; align-items: center;
+  padding: .65rem .9rem; border-radius: var(--radius-sm); background: var(--surface-2);
+  border: 1px solid var(--border); border-left: 3px solid var(--accent);
+}
+.layers .ln { font-weight: 800; font-size: .85rem; color: var(--accent); }
+.layers b { display: block; font-size: .92rem; }
+.layers .d { display: block; color: var(--muted); font-size: .85rem; }
+
+/* Callout */
+.callout {
+  padding: 1.1rem 1.25rem; border-radius: var(--radius-sm);
+  background: linear-gradient(135deg, var(--accent-soft), transparent 70%); border: 1px solid var(--accent);
+}
+.callout h5 { margin: 0 0 .6rem; font-size: 1.05rem; }
+.callout ol { margin: 0; padding-left: 1.2em; color: var(--muted); font-size: .92rem; }
+.callout ol li { margin-bottom: .25rem; }
+.callout ol li::marker { color: var(--accent); font-weight: 700; }
+.callout p { margin: .6rem 0 0; color: var(--muted); font-size: .88rem; }
+
+/* Safety strip */
+.safety { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: .6rem; }
+.safety div { padding: .8rem 1rem; border-radius: var(--radius-sm); border: 1px solid var(--accent-2); background: var(--accent-2-soft); }
+.safety b { display: block; color: var(--accent-2); font-size: .78rem; letter-spacing: .1em; text-transform: uppercase; margin-bottom: .15rem; }
+.safety span { font-size: .9rem; }
+
+/* Pipeline demo controls */
+.fc-controls { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem 1.25rem; margin-bottom: .9rem; }
+.gate-status { font: 600 .82rem/1.3 ui-monospace, SFMono-Regular, Consolas, monospace; }
+.btn-sm {
+  font: inherit; font-size: .82rem; font-weight: 600; cursor: pointer; padding: .45rem .85rem; border-radius: 9px;
+  color: var(--text); background: var(--surface-2); border: 1px solid var(--border); transition: border-color .2s;
+}
+.btn-sm:hover { border-color: var(--accent); }
+.btn-sm.primary { background: var(--accent); border-color: var(--accent); color: #04121a; }
+:root[data-theme="light"] .btn-sm.primary { color: #fff; }
+.switch { display: inline-flex; align-items: center; gap: .6rem; cursor: pointer; font-size: .88rem; color: var(--muted); position: relative; }
+.switch input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.switch .track {
+  flex: none; position: relative; width: 38px; height: 22px; border-radius: 999px;
+  background: var(--surface-2); border: 1px solid var(--border); transition: background-color .2s, border-color .2s;
+}
+.switch .track::after {
+  content: ""; position: absolute; top: 2px; left: 2px; width: 16px; height: 16px; border-radius: 50%;
+  background: var(--muted); transition: transform .2s, background-color .2s;
+}
+.switch input:checked + .track { background: var(--accent-2-soft); border-color: var(--accent-2); }
+.switch input:checked + .track::after { transform: translateX(16px); background: var(--accent-2); }
+.switch input:focus-visible + .track { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* Artifact / code panes */
+.artifact-head { display: flex; justify-content: space-between; gap: 1rem; margin: .2rem 0 .35rem; font-size: .7rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.artifact {
+  margin: 0; padding: .85rem 1rem; max-height: 340px; overflow: auto; border-radius: var(--radius-sm);
+  background: var(--surface); border: 1px solid var(--border); color: var(--text);
+  font: 12.5px/1.55 ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace; white-space: pre;
+}
+
+/* File tree explorer */
+.tree-wrap { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); gap: 1rem; align-items: start; }
+.tree {
+  padding: .8rem .9rem; border-radius: var(--radius-sm); background: var(--bg-2); border: 1px solid var(--border);
+  font: 13px/1.7 ui-monospace, SFMono-Regular, Consolas, monospace; overflow-x: auto;
+}
+.tree ul { list-style: none; margin: 0; padding-left: 1rem; border-left: 1px dashed var(--border); margin-left: .35rem; }
+.tree > ul { padding-left: 0; border: 0; margin-left: 0; }
+.tree summary { cursor: pointer; color: var(--text); font-weight: 600; }
+.tree summary::marker { color: var(--accent); }
+.tree .file {
+  font: inherit; cursor: pointer; text-align: left; padding: .05rem .35rem; border-radius: 5px;
+  color: var(--muted); background: none; border: 0;
+}
+.tree .file:hover, .tree .file[aria-pressed="true"] { color: var(--accent); background: var(--accent-soft); }
+
+/* Static tags */
+.tag {
+  display: inline-flex; align-items: center; gap: .35rem; font-size: .82rem; font-weight: 500; line-height: 1;
+  padding: .5rem .75rem; border-radius: 999px; background: var(--surface-2); border: 1px solid var(--border);
+}
+.tag.placeholder { border-style: dashed; color: var(--muted); }
+
+.sc-more summary { cursor: pointer; font-weight: 600; color: var(--accent); }
+.sc-more[open] summary { margin-bottom: .6rem; }
+.sc-more ul { margin: 0; color: var(--muted); }
+.sc-more li { margin-bottom: .3rem; }
+
+@media (max-width: 720px) {
+  .lane { flex-direction: column; align-items: stretch; }
+  .lane-label { flex: none; }
+  .lane .flow-arrow { transform: rotate(90deg); align-self: center; }
+  .lane .flow-node, .lane .flow-pill { justify-content: center; }
+  .tree-wrap { grid-template-columns: 1fr; }
+}
+
 /* ================= Stage 3: motion & interaction ================= */
 /* Scroll reveal (class added by JS only, so no-JS visitors see everything) */
 .reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1) !important; }
@@ -402,7 +643,7 @@ nav { margin-left: auto; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
-  .role:hover, .cap-group:hover, .project:hover, .btn:hover { transform: none; }
+  .role:hover, .cap-group:hover, .project:hover, .approach:hover, .btn:hover { transform: none; }
 }
 </style>
 </head>
@@ -416,6 +657,7 @@ nav { margin-left: auto; }
     <nav aria-label="Primary">
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
+        <li><a href="#approach">How I work</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#capabilities">Capabilities</a></li>
         <li><a href="#projects">Projects</a></li>
@@ -434,9 +676,9 @@ nav { margin-left: auto; }
 <!-- ================= HERO ================= -->
 <section id="top" class="hero">
   <div class="wrap">
-    <p class="eyebrow">Senior Data Engineer</p>
+    <p class="eyebrow">Data &amp; AI Engineer</p>
     <h1>Akhil Tabjula</h1>
-    <p class="lede">I build streaming, lakehouse, and ML data platforms on Azure, Databricks, and Snowflake — reliable, well-governed, and close enough to decisions to actually move them.</p>
+    <p class="lede">I build streaming, lakehouse, and ML data platforms on Azure, Databricks, and Snowflake, then ship agentic AI on top of them: end to end, working directly with the people who use it.</p>
     <div class="cta-row">
       <a class="btn btn-primary" href="resume.pdf" download>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 21h16"/></svg>
@@ -448,7 +690,7 @@ nav { margin-left: auto; }
       </a>
     </div>
 
-    <figure class="pipeline" aria-label="Data pipeline: Sources to Kafka to Spark and Databricks to Snowflake to Dashboards and ML. Focus a stage for details.">
+    <figure class="pipeline" aria-label="Data pipeline: ingest, stream, process, serve, and consume. Focus a stage to see the tools and how I have used them.">
       <!-- Horizontal pipeline (desktop / tablet) -->
       <svg class="pipe-svg pipe-h" viewBox="0 0 1000 170">
         <g class="links">
@@ -458,19 +700,19 @@ nav { margin-left: auto; }
           <path d="M770 85 H 830"/>
         </g>
         <g class="stage" data-stage="0" tabindex="0" role="button" aria-describedby="tip-0">
-          <rect x="30" y="45" width="140" height="80" rx="14"/><text x="100" y="80" text-anchor="middle" class="sub">Ingest</text><text x="100" y="102" text-anchor="middle">Sources</text>
+          <rect x="30" y="45" width="140" height="80" rx="14"/><text x="100" y="80" text-anchor="middle" class="sub">Ingest</text><text x="100" y="102" text-anchor="middle" class="sm tool">APIs &amp; SaaS</text>
         </g>
         <g class="stage" data-stage="1" tabindex="0" role="button" aria-describedby="tip-1">
-          <rect x="230" y="45" width="140" height="80" rx="14"/><text x="300" y="80" text-anchor="middle" class="sub">Stream</text><text x="300" y="102" text-anchor="middle">Kafka</text>
+          <rect x="230" y="45" width="140" height="80" rx="14"/><text x="300" y="80" text-anchor="middle" class="sub">Stream</text><text x="300" y="102" text-anchor="middle" class="sm tool">Kafka</text>
         </g>
         <g class="stage" data-stage="2" tabindex="0" role="button" aria-describedby="tip-2">
-          <rect x="430" y="45" width="140" height="80" rx="14"/><text x="500" y="80" text-anchor="middle" class="sub">Process</text><text x="500" y="102" text-anchor="middle" class="sm">Spark / Databricks</text>
+          <rect x="430" y="45" width="140" height="80" rx="14"/><text x="500" y="80" text-anchor="middle" class="sub">Process</text><text x="500" y="102" text-anchor="middle" class="sm tool">Spark / Databricks</text>
         </g>
         <g class="stage" data-stage="3" tabindex="0" role="button" aria-describedby="tip-3">
-          <rect x="630" y="45" width="140" height="80" rx="14"/><text x="700" y="80" text-anchor="middle" class="sub">Serve</text><text x="700" y="102" text-anchor="middle">Snowflake</text>
+          <rect x="630" y="45" width="140" height="80" rx="14"/><text x="700" y="80" text-anchor="middle" class="sub">Serve</text><text x="700" y="102" text-anchor="middle" class="sm tool">Snowflake</text>
         </g>
         <g class="stage" data-stage="4" tabindex="0" role="button" aria-describedby="tip-4">
-          <rect x="830" y="45" width="140" height="80" rx="14"/><text x="900" y="80" text-anchor="middle" class="sub">Consume</text><text x="900" y="102" text-anchor="middle" class="sm">Dashboards / ML</text>
+          <rect x="830" y="45" width="140" height="80" rx="14"/><text x="900" y="80" text-anchor="middle" class="sub">Consume</text><text x="900" y="102" text-anchor="middle" class="sm tool">Power BI</text>
         </g>
         <g class="packets"></g>
       </svg>
@@ -484,29 +726,29 @@ nav { margin-left: auto; }
           <path d="M160 418 V 442"/>
         </g>
         <g class="stage" data-stage="0" tabindex="0" role="button" aria-describedby="tip-0">
-          <rect x="60" y="18" width="200" height="70" rx="14"/><text x="160" y="48" text-anchor="middle" class="sub">Ingest</text><text x="160" y="70" text-anchor="middle">Sources</text>
+          <rect x="60" y="18" width="200" height="70" rx="14"/><text x="160" y="48" text-anchor="middle" class="sub">Ingest</text><text x="160" y="70" text-anchor="middle" class="sm tool">APIs &amp; SaaS</text>
         </g>
         <g class="stage" data-stage="1" tabindex="0" role="button" aria-describedby="tip-1">
-          <rect x="60" y="128" width="200" height="70" rx="14"/><text x="160" y="158" text-anchor="middle" class="sub">Stream</text><text x="160" y="180" text-anchor="middle">Kafka</text>
+          <rect x="60" y="128" width="200" height="70" rx="14"/><text x="160" y="158" text-anchor="middle" class="sub">Stream</text><text x="160" y="180" text-anchor="middle" class="sm tool">Kafka</text>
         </g>
         <g class="stage" data-stage="2" tabindex="0" role="button" aria-describedby="tip-2">
-          <rect x="60" y="238" width="200" height="70" rx="14"/><text x="160" y="268" text-anchor="middle" class="sub">Process</text><text x="160" y="290" text-anchor="middle" class="sm">Spark / Databricks</text>
+          <rect x="60" y="238" width="200" height="70" rx="14"/><text x="160" y="268" text-anchor="middle" class="sub">Process</text><text x="160" y="290" text-anchor="middle" class="sm tool">Spark / Databricks</text>
         </g>
         <g class="stage" data-stage="3" tabindex="0" role="button" aria-describedby="tip-3">
-          <rect x="60" y="348" width="200" height="70" rx="14"/><text x="160" y="378" text-anchor="middle" class="sub">Serve</text><text x="160" y="400" text-anchor="middle">Snowflake</text>
+          <rect x="60" y="348" width="200" height="70" rx="14"/><text x="160" y="378" text-anchor="middle" class="sub">Serve</text><text x="160" y="400" text-anchor="middle" class="sm tool">Snowflake</text>
         </g>
         <g class="stage" data-stage="4" tabindex="0" role="button" aria-describedby="tip-4">
-          <rect x="60" y="458" width="200" height="70" rx="14"/><text x="160" y="488" text-anchor="middle" class="sub">Consume</text><text x="160" y="510" text-anchor="middle" class="sm">Dashboards / ML</text>
+          <rect x="60" y="458" width="200" height="70" rx="14"/><text x="160" y="488" text-anchor="middle" class="sub">Consume</text><text x="160" y="510" text-anchor="middle" class="sm tool">Power BI</text>
         </g>
         <g class="packets"></g>
       </svg>
-      <figcaption class="pipeline-caption">Hover or tap a stage to see how I've used it.</figcaption>
+
       <div class="tooltips">
-        <p class="tooltip" role="tooltip" id="tip-0" hidden><strong>Sources</strong> POS terminals, ERP and SaaS APIs, third-party vendor feeds, and external event data — each with its own contract and failure modes.</p>
-        <p class="tooltip" role="tooltip" id="tip-1" hidden><strong>Kafka</strong> Re-architected real-time POS ingestion from point-to-point Mulesoft flows to Kafka topics, decoupling producers from downstream consumers.</p>
-        <p class="tooltip" role="tooltip" id="tip-2" hidden><strong>Spark / Databricks</strong> PySpark frameworks, Structured Streaming, and Delta Lake under Unity Catalog for forecasting, segmentation, and ML feature pipelines.</p>
-        <p class="tooltip" role="tooltip" id="tip-3" hidden><strong>Snowflake</strong> Led a Teradata→Snowflake migration; built Snowpipe, Streams &amp; Tasks, and Snowpark pipelines with dbt models on top.</p>
-        <p class="tooltip" role="tooltip" id="tip-4" hidden><strong>Dashboards / ML</strong> Power BI KPI layers, suggested-order recommendation models, and agentic AI apps that answer questions in plain language.</p>
+        <p class="tooltip" role="tooltip" id="tip-0" hidden><strong>Ingest</strong> POS, ERP, SaaS APIs, databases, and third-party vendor feeds through Fivetran, Azure Data Factory, Talend, Auto Loader, and custom REST connectors, each with its own contract and failure modes.</p>
+        <p class="tooltip" role="tooltip" id="tip-1" hidden><strong>Stream</strong> Re-architected real-time POS ingestion from point-to-point Mulesoft flows to Kafka, with Snowpipe, Streams &amp; Tasks, and Spark Structured Streaming for low-latency loads.</p>
+        <p class="tooltip" role="tooltip" id="tip-2" hidden><strong>Process</strong> From Hive and MapReduce to PySpark on Databricks, Snowpark, and dbt: frameworks for forecasting, segmentation, and ML feature pipelines.</p>
+        <p class="tooltip" role="tooltip" id="tip-3" hidden><strong>Serve</strong> Led a Teradata→Snowflake migration, and modeled warehouses and lakehouses on Snowflake, Delta Lake, Redshift, and Azure SQL with governance built in.</p>
+        <p class="tooltip" role="tooltip" id="tip-4" hidden><strong>Consume</strong> Power BI KPI layers, suggested-order recommendation models, and agentic AI apps that let people ask questions in plain English and get answers grounded in real data.</p>
       </div>
     </figure>
   </div>
@@ -516,14 +758,47 @@ nav { margin-left: auto; }
 <section id="about">
   <div class="wrap about-grid">
     <div>
-      <div class="section-head"><span class="kicker">About</span><h2>Data plumbing, done with care</h2></div>
+      <div class="section-head"><span class="kicker">About</span><h2>From data plumbing to shipped AI</h2></div>
       <p>I've worked through several technology cycles — Hive and MapReduce to Spark and Databricks, nightly batch ETL to real-time Kafka pipelines, and most recently agentic AI. The focus hasn't changed: data infrastructure that's reliable, well-governed, and trusted by the people making decisions with it.</p>
-      <p>Today I lead data engineering within an Advanced Analytics organization, where I started as the sole data engineer and built the function into a team.</p>
-      <p class="personal">Off the clock, I collect <strong>coins</strong>, <strong>currency</strong>, and <strong>travel mugs</strong> — each one a small artifact from somewhere, which is roughly how I think about data, too.</p>
+      <p>Today I lead a data engineering team within an Advanced Analytics organization. The work I enjoy most sits close to the business: scoping problems with stakeholders, prototyping fast, demoing early, and taking what works all the way to production.</p>
+      <p class="personal">Off the clock, I collect <strong>coins</strong>, <strong>currency</strong>, and <strong>travel mugs</strong>.</p>
     </div>
     <div class="stat" aria-label="10+ years of experience">
       <span class="stat-num"><span class="counter" data-count="10">10</span><span class="plus">+</span></span>
       <span class="stat-label">years in data engineering</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= HOW I WORK (bridges Data Engineer + Forward Deployed) ================= -->
+<section id="approach">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">How I work</span>
+      <h2>Close to the problem, all the way to production</h2>
+
+    </div>
+    <div class="approach-grid">
+      <section class="approach">
+        <h3>Start with the user's problem</h3>
+        <p>Scope directly with sales and business stakeholders, turn vague asks into working tools, and demo to leadership early.</p>
+        <button class="chip proof" type="button" data-tool="w-users" data-label="Start with the user's problem">Show where</button>
+      </section>
+      <section class="approach">
+        <h3>Own it end to end</h3>
+        <p>Data foundation, APIs, agent orchestration, and the UI people actually use, from prototype to production.</p>
+        <button class="chip proof" type="button" data-tool="w-e2e" data-label="Own it end to end">Show where</button>
+      </section>
+      <section class="approach">
+        <h3>Integrate messy, real systems</h3>
+        <p>Legacy warehouses, point-to-point integrations, restated vendor feeds, and authenticated enterprise APIs.</p>
+        <button class="chip proof" type="button" data-tool="w-integrate" data-label="Integrate messy, real systems">Show where</button>
+      </section>
+      <section class="approach">
+        <h3>Make it trustworthy</h3>
+        <p>Guardrails before features: data-quality gates, governance, and AI that fails closed instead of guessing.</p>
+        <button class="chip proof" type="button" data-tool="w-trust" data-label="Make it trustworthy">Show where</button>
+      </section>
     </div>
   </div>
 </section>
@@ -535,15 +810,15 @@ nav { margin-left: auto; }
     <ol class="timeline">
 
       <li>
-        <article class="role filterable" data-tools="databricks snowflake dbt kafka langgraph">
+        <article class="role filterable" data-tools="databricks snowflake dbt kafka langgraph azure spark carto h3 powerbi w-users w-e2e">
           <header>
             <h3>Coca-Cola Southwest Beverages</h3>
             <p class="meta">Senior Data Engineer · <time datetime="2023-10">Oct 2023</time> – Present</p>
           </header>
           <ul>
             <li>Joined as the sole data engineer, built the data engineering function from the ground up, and now lead a team of four within the Advanced Analytics org.</li>
-            <li>Architected the data foundation for a real-time suggested-order engine that blends historical sales with ML predictions.</li>
-            <li>Built an agentic API orchestrator on LangGraph with vector search over API metadata, so users can find and call the right internal API conversationally.</li>
+            <li>Scope problems directly with sales and business stakeholders, demo prototypes to leadership, and ship tools non-engineers use, including the data foundation for a real-time suggested-order engine that blends historical sales with ML predictions.</li>
+            <li>Built Azure Function Apps and REST APIs connecting Power BI, Databricks, Data Lake, and Azure SQL so KPI data flows end to end, plus CARTO workflows with H3 indexing for location intelligence.</li>
           </ul>
           <div class="chips">
             <button class="chip" type="button" data-tool="databricks">Databricks</button>
@@ -556,7 +831,7 @@ nav { margin-left: auto; }
       </li>
 
       <li>
-        <article class="role filterable" data-tools="snowflake kafka snowpark dbt snowpipe">
+        <article class="role filterable" data-tools="snowflake kafka snowpark dbt snowpipe w-integrate w-trust">
           <header>
             <h3>Victoria's Secret</h3>
             <p class="meta">Senior Data Engineer · <time datetime="2021-06">Jun 2021</time> – <time datetime="2023-09">Sep 2023</time></p>
@@ -576,7 +851,7 @@ nav { margin-left: auto; }
       </li>
 
       <li>
-        <article class="role filterable" data-tools="azure databricks spark snowflake">
+        <article class="role filterable" data-tools="azure databricks spark snowflake powerbi w-integrate">
           <header>
             <h3>Inspire Brands</h3>
             <p class="meta">Data Engineer · <time datetime="2021-01">Jan 2021</time> – <time datetime="2021-05">May 2021</time></p>
@@ -595,7 +870,7 @@ nav { margin-left: auto; }
       </li>
 
       <li>
-        <article class="role filterable" data-tools="csharp azure dynamics365 sqlserver spark">
+        <article class="role filterable" data-tools="csharp azure dynamics365 sqlserver spark w-integrate">
           <header>
             <h3>Wipro Technologies</h3>
             <p class="meta">Project Engineer · <time datetime="2014-08">Aug 2014</time> – <time datetime="2019-08">Aug 2019</time></p>
@@ -633,8 +908,8 @@ nav { margin-left: auto; }
   <div class="wrap">
     <div class="section-head">
       <span class="kicker">Capabilities</span>
-      <h2>The toolkit, grouped by job</h2>
-      <p class="hint">Click any tool to highlight the roles and projects where I've used it. Click again to reset.</p>
+      <h2>What I work with</h2>
+
     </div>
     <div class="cap-grid">
       <section class="cap-group">
@@ -698,6 +973,17 @@ nav { margin-left: auto; }
         </div>
       </section>
       <section class="cap-group">
+        <h3>Apps &amp; Delivery</h3>
+        <div class="chips">
+          <button class="chip" type="button" data-tool="python">Python</button>
+          <button class="chip" type="button" data-tool="fastapi">FastAPI</button>
+          <button class="chip" type="button" data-tool="react">React + TypeScript</button>
+          <button class="chip" type="button" data-tool="graphql">REST / GraphQL APIs</button>
+          <button class="chip" type="button" data-tool="oauth2">OAuth2</button>
+          <button class="chip" type="button" data-tool="powerbi">Power BI</button>
+        </div>
+      </section>
+      <section class="cap-group">
         <h3>Geospatial</h3>
         <div class="chips">
           <button class="chip" type="button" data-tool="postgis">PostGIS</button>
@@ -715,13 +1001,18 @@ nav { margin-left: auto; }
   <div class="wrap">
     <div class="section-head">
       <span class="kicker">Projects</span>
-      <h2>Selected architecture patterns</h2>
-      <p class="hint">Patterns only, no internal data. Click a card to expand.</p>
+      <h2>Selected work</h2>
+
+    </div>
+
+    <div class="group-head">
+      <h3 class="group-title">Data platforms</h3>
+
     </div>
     <div class="proj-grid">
 
       <!-- Project 1 -->
-      <article class="project filterable" data-tools="kafka snowpark snowflake snowpipe dbt">
+      <article class="project filterable" data-tools="kafka snowpark snowflake snowpipe dbt w-e2e w-integrate">
         <details>
           <summary>
             <h3>Real-time POS streaming</h3>
@@ -755,7 +1046,7 @@ nav { margin-left: auto; }
       </article>
 
       <!-- Project 2 -->
-      <article class="project filterable" data-tools="snowflake dbt great-expectations databricks delta">
+      <article class="project filterable" data-tools="snowflake dbt great-expectations databricks delta w-integrate w-trust">
         <details>
           <summary>
             <h3>Catching a silent vendor data rewrite</h3>
@@ -788,43 +1079,282 @@ nav { margin-left: auto; }
         </details>
       </article>
 
-      <!-- Project 3 -->
-      <article class="project filterable" data-tools="langgraph rag vector-search mcp azure">
-        <details>
-          <summary>
-            <h3>Agentic API orchestrator</h3>
-            <p class="proj-sub">LangGraph stateful agent + vector search over API metadata</p>
-          </summary>
-          <div class="proj-body">
-            <h4>Problem</h4>
-            <p>Finding the right internal API — endpoint, scope, contract — meant digging through repositories and asking around. Calling it correctly took even more context.</p>
-            <h4>Architecture</h4>
-            <div class="arch-wrap"><svg class="arch" viewBox="0 0 640 170" role="img" aria-label="Repositories are indexed into an API registry with embeddings; a user asks the chat, a router agent retrieves candidate APIs via vector search, and an execute agent gathers parameters, calls the API and explains the result">
-              <g class="arch-links" fill="none" stroke="currentColor" stroke-width="2"><path d="M110 40H150"/><path d="M110 125H150"/><path d="M250 40H300V100"/><path d="M250 125H300"/><path d="M410 125H450"/><path d="M560 125H600"/></g>
-              <g class="arch-nodes">
-                <rect x="10" y="15" width="100" height="50" rx="8"/><text x="60" y="45" text-anchor="middle">Repos</text>
-                <rect x="150" y="15" width="100" height="50" rx="8"/><text x="200" y="37" text-anchor="middle">API registry</text><text x="200" y="53" text-anchor="middle">+ embeddings</text>
-                <rect x="10" y="100" width="100" height="50" rx="8"/><text x="60" y="130" text-anchor="middle">User chat</text>
-                <rect x="150" y="100" width="100" height="50" rx="8"/><text x="200" y="122" text-anchor="middle">Router</text><text x="200" y="138" text-anchor="middle">agent</text>
-                <rect x="300" y="100" width="110" height="50" rx="8"/><text x="355" y="122" text-anchor="middle">Vector</text><text x="355" y="138" text-anchor="middle">search</text>
-                <rect x="450" y="100" width="110" height="50" rx="8"/><text x="505" y="122" text-anchor="middle">Execute</text><text x="505" y="138" text-anchor="middle">agent</text>
-                <rect x="600" y="100" width="35" height="50" rx="8"/><text x="617" y="130" text-anchor="middle">API</text>
-              </g>
-            </svg></div>
-            <h4>Key decisions</h4>
-            <ul>
-              <li>An indexing pipeline extracts endpoints, scopes, and contracts from repositories into a central registry, so retrieval stays current without manual docs.</li>
-              <li>LangGraph for explicit state and branching: retrieve → confirm → gather params → execute → explain.</li>
-              <li>The execute agent asks targeted follow-up questions for missing payload fields rather than guessing.</li>
-              <li>Raw API responses are summarized into plain language, with the underlying call shown for transparency.</li>
-            </ul>
-            <h4>Outcome</h4>
-            <p>People describe what they need in plain English and get the right API — and often the answer itself — without knowing where it lives or how to call it.</p>
-          </div>
-        </details>
-      </article>
-
     </div>
+
+    <!-- ===== Agentic AI (same section, second group) ===== -->
+    <div class="group-head" id="agents">
+      <h3 class="group-title">Agentic AI: agents that ask instead of guess</h3>
+      <p>Two systems I designed and built end to end (data layer, agents, and UI) around one idea: reliable agents know when <em>not</em> to act.</p>
+    </div>
+
+    <!-- ========== Showcase 1: Agentic API Orchestrator ========== -->
+    <article class="showcase filterable" id="orchestrator" data-tools="langgraph python fastapi pydantic mongodb react typescript oauth2 openapi graphql vector-search rag pytest w-users w-e2e w-integrate w-trust">
+      <header class="sc-head">
+        <span class="sc-tag">Multi-agent · Full-stack</span>
+        <h3>Agentic API Orchestrator</h3>
+        <p class="sc-pitch">A multi-agent chat assistant that turns plain-English questions into authenticated enterprise API calls: it picks the right API, reads its contract, collects missing fields, runs the request, and explains the result.</p>
+        <div class="chips">
+          <button class="chip" type="button" data-tool="langgraph">LangGraph / LangChain</button>
+          <button class="chip" type="button" data-tool="python">Python</button>
+          <button class="chip" type="button" data-tool="fastapi">FastAPI</button>
+          <button class="chip" type="button" data-tool="pydantic">Pydantic</button>
+          <button class="chip" type="button" data-tool="mongodb">MongoDB</button>
+          <button class="chip" type="button" data-tool="vector-search">Vector search</button>
+          <button class="chip" type="button" data-tool="rag">RAG</button>
+          <button class="chip" type="button" data-tool="react">React + TypeScript</button>
+          <button class="chip" type="button" data-tool="openapi">OpenAPI</button>
+          <button class="chip" type="button" data-tool="graphql">REST / GraphQL</button>
+          <button class="chip" type="button" data-tool="oauth2">OAuth2</button>
+          <button class="chip" type="button" data-tool="pytest">Pytest</button>
+        </div>
+        <p class="sc-role">Designed and built end to end: multi-agent LangGraph orchestration, FastAPI backend, React chat UI, MongoDB-backed knowledge and retrieval, OAuth-authenticated API execution, interactive clarification and form loops, and a registry/contract model for onboarding new APIs.</p>
+      </header>
+
+      <!-- Before / after -->
+      <div class="sc-block">
+        <h4>Before → after</h4>
+        <div class="seg" role="group" aria-label="Compare workflows">
+          <button type="button" data-ba="before" aria-pressed="false">Manual</button>
+          <button type="button" data-ba="after" aria-pressed="true">Agentic</button>
+        </div>
+        <ol class="steps manual" data-ba-list="before" hidden>
+          <li>Have a question</li><li>Figure out which API</li><li>Read docs &amp; contract</li><li>Hand-build the request</li><li>Authenticate</li><li>Call the API</li><li>Decode raw JSON</li>
+        </ol>
+        <ol class="steps" data-ba-list="after">
+          <li>Ask in plain English</li><li>Agent selects the API</li><li>Agent reads the contract</li><li>Asks only for missing values (or opens a form)</li><li>Builds the payload</li><li>Calls the API</li><li>Explains the result</li><li>Edit values or switch lookup, no restart</li>
+        </ol>
+        <p class="steps-caption" data-ba-caption>Closer to a guided copilot than a one-shot chatbot: clarification loops, interrupt/resume, editable forms, and post-answer retries are built in.</p>
+      </div>
+
+      <!-- Agent graph -->
+      <div class="sc-block">
+        <h4>The 8-agent pipeline</h4>
+        <p>LLMs only where language judgment is needed; plain code everywhere else. Pick a question to see the route it takes.</p>
+        <div class="lanes" id="agent-graph">
+          <div class="lane">
+            <span class="lane-label">Ask</span>
+            <span class="flow-pill">User question</span><span class="flow-arrow" aria-hidden="true">→</span>
+            <span class="flow-node" data-agent="router"><span class="n">1</span>Intent Router<span class="badge llm">LLM</span></span>
+          </div>
+          <div class="lane">
+            <span class="lane-label">Catalog</span>
+            <span class="flow-node" data-agent="catalog"><span class="n">2</span>Catalog Agent<span class="badge llm">LLM</span></span><span class="flow-arrow" aria-hidden="true">→</span>
+            <span class="flow-pill">Answer, no backend call</span>
+          </div>
+          <div class="lane">
+            <span class="lane-label">Execute</span>
+            <span class="flow-node" data-agent="discovery"><span class="n">3</span>Contract Discovery<span class="badge det">Code</span></span><span class="flow-arrow" aria-hidden="true">→</span>
+            <span class="flow-node" data-agent="reader"><span class="n">4</span>Contract Reader<span class="badge det">Code</span></span><span class="flow-arrow" aria-hidden="true">→</span>
+            <span class="flow-node" data-agent="collector"><span class="n">5</span>Parameter Collector<span class="badge llm">LLM</span></span><span class="flow-arrow" aria-hidden="true">→</span>
+            <span class="flow-node" data-agent="builder"><span class="n">6</span>Payload Builder<span class="badge det">Code</span></span><span class="flow-arrow" aria-hidden="true">→</span>
+            <span class="flow-node" data-agent="executor"><span class="n">7</span>API Executor<span class="badge det">Code</span></span><span class="flow-arrow" aria-hidden="true">→</span>
+            <span class="flow-node" data-agent="explainer"><span class="n">8</span>Response Explainer<span class="badge llm">LLM</span></span>
+          </div>
+        </div>
+
+        <div class="sc-block" style="margin-top:1.4rem">
+          <h4 class="sc-sub">Try a route</h4>
+          <div class="prompt-group">
+            <button type="button" class="prompt" data-route="router catalog" data-trace="Router → <b>Catalog Agent</b> → answers from registry + contracts, no backend call">List all available APIs</button>
+            <button type="button" class="prompt" data-route="router discovery reader collector builder executor explainer" data-trace="Router → Discovery → Reader → <b>Collector</b> (all fields present: auto-run) → Builder → Executor → Explainer">Run a lookup with these identifiers</button>
+            <button type="button" class="prompt" data-route="router discovery reader collector builder executor explainer" data-trace="Router (low confidence → asks which API) → Discovery → Reader → Collector (pauses for a form) → … → <b>Explainer</b>">Show results for this request</button>
+          </div>
+          <p class="trace-line" id="agent-trace" aria-live="polite"></p>
+        </div>
+      </div>
+
+      <details class="deep-dive">
+      <summary>Architecture &amp; design details</summary>
+
+      <!-- Architecture + principles -->
+      <div class="sc-block sc-cols">
+        <div>
+          <h4 class="sc-sub">Architecture layers</h4>
+          <ol class="layers">
+            <li><span class="ln">1</span><span><b>Web UI</b><span class="d">React + TypeScript + Vite, chat with markdown answers and a visible agent trace</span></span></li>
+            <li><span class="ln">2</span><span><b>API server</b><span class="d">FastAPI</span></span></li>
+            <li><span class="ln">3</span><span><b>Agent orchestration</b><span class="d">LangGraph state machine with interrupt/resume</span></span></li>
+            <li><span class="ln">4</span><span><b>Knowledge base</b><span class="d">MongoDB + JSON source-of-truth files</span></span></li>
+            <li><span class="ln">5</span><span><b>External services</b><span class="d">LLM gateway, embedding gateway, OAuth token service, target APIs</span></span></li>
+          </ol>
+        </div>
+        <div>
+          <h4 class="sc-sub">Hybrid intelligence</h4>
+          <ul class="note-list">
+            <li><b>LLM only where language judgment is needed:</b> routing refinement, value extraction, explanation.</li>
+            <li><b>Deterministic code for everything else:</b> contract parsing, payload shaping, auth, REST/GraphQL execution.</li>
+            <li><b>Guardrails:</b> never invent missing identifiers or facts that aren't in the API response.</li>
+            <li><b>Fuzzy selection, exact execution:</b> capability cards are embedded and retrieved by similarity, then the chosen API's contract is fetched exactly. Keyword scoring is the fallback when vector retrieval is off.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Feature gallery -->
+      <div class="sc-block">
+        <h4>Interaction design</h4>
+        <div class="mini-grid">
+          <div class="mini"><h5>Clarification cards</h5><p>When routing confidence is low, the user picks the API instead of the agent guessing silently.</p></div>
+          <div class="mini"><h5>Scenario cards</h5><p>APIs with more than one request shape offer lookup scenarios to choose from.</p></div>
+          <div class="mini"><h5>Contract-driven forms</h5><p>Editable payload forms generated and validated from the OpenAPI contract, not hand-built per API.</p></div>
+          <div class="mini"><h5>Smart auto-run</h5><p>If the message already supplies everything for exactly one lookup, it just runs.</p></div>
+          <div class="mini"><h5>Post-answer quick actions</h5><p>Edit the same payload or switch scenarios without restarting the conversation.</p></div>
+          <div class="mini"><h5>Memory &amp; feedback</h5><p>Session memory for chat history and per-API context, plus optional useful / not-useful feedback.</p></div>
+        </div>
+      </div>
+
+      </details>
+    </article>
+
+    <!-- ========== Showcase 2: Fail-Closed Agents ========== -->
+    <article class="showcase filterable" id="fail-closed" data-tools="python pytest ruff jsonschema pyyaml cursor mcp openapi w-e2e w-trust">
+      <header class="sc-head">
+        <span class="sc-tag">AI test generation · Human approval gate</span>
+        <h3>No-Guess Test Agents</h3>
+        <p class="sc-pitch">Agents that turn approved design evidence into traceable pytest suites, and refuse to invent expected behavior when the evidence is silent.</p>
+        <div class="chips">
+          <button class="chip" type="button" data-tool="python">Python 3.11</button>
+          <button class="chip" type="button" data-tool="pytest">Pytest</button>
+          <button class="chip" type="button" data-tool="ruff">Ruff</button>
+          <button class="chip" type="button" data-tool="jsonschema">jsonschema</button>
+          <button class="chip" type="button" data-tool="pyyaml">PyYAML</button>
+          <button class="chip" type="button" data-tool="cursor">Cursor rules / skills / agents</button>
+          <button class="chip" type="button" data-tool="mcp">MCP-style adapters</button>
+          <button class="chip" type="button" data-tool="openapi">OpenAPI</button>
+        </div>
+      </header>
+
+      <div class="sc-block">
+        <div class="safety">
+          <div><b>Fail-closed</b><span>When evidence is missing, it stops and asks. It never fills in the gap.</span></div>
+          <div><b>Approval gate</b><span>Recorded approver + timestamp. Chat can't approve.</span></div>
+          <div><b>Redaction</b><span>Secrets resolved via a provider interface and redacted everywhere.</span></div>
+        </div>
+      </div>
+
+      <!-- Interactive pipeline -->
+      <div class="sc-block" id="fc-demo">
+        <h4>Walk the pipeline</h4>
+        <p>Click a stage to see what it produces for a fictional <code>orders_sync</code> job. Generation stays locked until you approve.</p>
+        <div class="fc-controls">
+          <label class="switch"><input type="checkbox" id="fc-conflict"><span class="track" aria-hidden="true"></span>Inject a conflicting requirement</label>
+          <button type="button" class="btn-sm" id="fc-reset">Reset demo</button>
+          <span class="gate-status" id="fc-gate" aria-live="polite"></span>
+        </div>
+        <div class="flow" id="fc-flow">
+          <button type="button" class="flow-node" data-stage-id="intake"><span class="n">1</span>Intake<span class="nb"></span></button><span class="flow-arrow" aria-hidden="true">→</span>
+          <button type="button" class="flow-node" data-stage-id="discover"><span class="n">2</span>Discover<span class="nb"></span></button><span class="flow-arrow" aria-hidden="true">→</span>
+          <button type="button" class="flow-node" data-stage-id="extract"><span class="n">3</span>Extract<span class="nb"></span></button><span class="flow-arrow" aria-hidden="true">→</span>
+          <button type="button" class="flow-node" data-stage-id="propose"><span class="n">4</span>Propose<span class="nb"></span></button><span class="flow-arrow" aria-hidden="true">→</span>
+          <button type="button" class="flow-node" data-stage-id="audit"><span class="n">5</span>Audit<span class="nb"></span></button><span class="flow-arrow" aria-hidden="true">→</span>
+          <button type="button" class="flow-node" data-stage-id="await"><span class="n">6</span>Await approval<span class="nb"></span></button><span class="flow-arrow" aria-hidden="true">→</span>
+          <button type="button" class="flow-node" data-stage-id="approve"><span class="n">7</span>Approve<span class="nb"></span></button><span class="flow-arrow" aria-hidden="true">→</span>
+          <button type="button" class="flow-node" data-stage-id="generate"><span class="n">8</span>Generate<span class="nb"></span></button><span class="flow-arrow" aria-hidden="true">→</span>
+          <button type="button" class="flow-node" data-stage-id="ready"><span class="n">9</span>Ready<span class="nb"></span></button><span class="flow-arrow" aria-hidden="true">→</span>
+          <button type="button" class="flow-node" data-stage-id="execute"><span class="n">10</span>Execute<span class="nb"></span></button>
+        </div>
+        <div class="flow-detail" id="fc-detail" aria-live="polite">
+          <h5>Intake</h5>
+          <p>Capture the testing request and point at the evidence to use. Nothing beyond what's stated is assumed.</p>
+        </div>
+      </div>
+
+      <details class="deep-dive">
+      <summary>Architecture &amp; design details</summary>
+
+      <!-- Generated project explorer -->
+      <div class="sc-block">
+        <h4>Generated project (fictional)</h4>
+        <div class="tree-wrap">
+          <div class="tree" role="group" aria-label="Generated project files">
+            <ul>
+              <li><details open><summary>orders_sync_tests/</summary>
+                <ul>
+                  <li><button type="button" class="file" data-file="README.md">README.md</button></li>
+                  <li><button type="button" class="file" data-file="pyproject.toml">pyproject.toml</button></li>
+                  <li><button type="button" class="file" data-file="conftest.py">conftest.py</button></li>
+                  <li><details open><summary>approvals/</summary><ul>
+                    <li><button type="button" class="file" data-file="approvals/approval.json">approval.json</button></li>
+                  </ul></details></li>
+                  <li><details open><summary>traceability/</summary><ul>
+                    <li><button type="button" class="file" data-file="traceability/matrix.csv">matrix.csv</button></li>
+                  </ul></details></li>
+                  <li><details><summary>evidence/</summary><ul>
+                    <li><button type="button" class="file" data-file="evidence/evidence_index.json">evidence_index.json</button></li>
+                  </ul></details></li>
+                  <li><details open><summary>tests/</summary><ul>
+                    <li><button type="button" class="file" data-file="tests/test_sc01_valid_order_sync.py">test_sc01_valid_order_sync.py</button></li>
+                    <li><button type="button" class="file" data-file="tests/test_sc02_amount_precision.py">test_sc02_amount_precision.py</button></li>
+                    <li><button type="button" class="file" data-file="tests/test_sc03_unknown_status.py">test_sc03_unknown_status.py</button></li>
+                  </ul></details></li>
+                  <li><details><summary>config/</summary><ul>
+                    <li><button type="button" class="file" data-file="config/settings.yaml">settings.yaml</button></li>
+                  </ul></details></li>
+                </ul>
+              </details></li>
+            </ul>
+          </div>
+          <div>
+            <div class="artifact-head"><span id="tree-path">README.md</span><span>preview</span></div>
+            <pre class="artifact" id="tree-preview"># orders_sync_tests
+Generated from approved artifacts only.</pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Design principles -->
+      <div class="sc-block">
+        <h4>Design principles</h4>
+        <div class="mini-grid">
+          <div class="mini"><h5>Artifacts define truth</h5><p>Approved artifacts define expected behavior. Implementation code is evidence only.</p></div>
+          <div class="mini"><h5>Governance as code</h5><p>IDE rules, skills, and auditors share executable rule fields with the Python runner.</p></div>
+          <div class="mini"><h5>Isolated output</h5><p>Generated projects go only to a verified, separate automation checkout.</p></div>
+        </div>
+      </div>
+
+      <!-- Layers + roster -->
+      <div class="sc-block sc-cols">
+        <div>
+          <h4 class="sc-sub">Architecture layers</h4>
+          <ol class="layers">
+            <li><span class="ln">1</span><span><b>Governance</b><span class="d">IDE rules, skills, agents, auditors</span></span></li>
+            <li><span class="ln">2</span><span><b>Workflow, state &amp; artifacts</b><span class="d">Stage machine, approval records, traceability</span></span></li>
+            <li><span class="ln">3</span><span><b>Validators</b><span class="d">jsonschema, layout and rule checks, lint</span></span></li>
+            <li><span class="ln">4</span><span><b>Parsers &amp; integrations</b><span class="d">Document parsers, connectors, secret provider, MCP-style repo/doc adapters</span></span></li>
+            <li><span class="ln">5</span><span><b>Generated project runtime</b><span class="d">Fixed-layout pytest suite</span></span></li>
+          </ol>
+        </div>
+        <div>
+          <h4 class="sc-sub">Skills vs. auditors</h4>
+          <div class="mini-grid" style="grid-template-columns:1fr">
+            <div class="mini"><h5>Skills: procedures that do the work</h5>
+              <ul><li>Inventory evidence</li><li>Extract supported requirements</li><li>Propose scenarios &amp; detailed cases</li><li>Generate the pytest project</li></ul></div>
+            <div class="mini"><h5>Auditors: reviewers that only report</h5>
+              <ul><li>Traceability (case ↔ requirement ↔ evidence)</li><li>Unsupported claims / fabrication</li><li>Secret exposure</li><li>Output layout &amp; target checkout</li></ul></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Templates + stack -->
+      <div class="sc-block sc-cols">
+        <div>
+          <h4 class="sc-sub">Templates</h4>
+          <div class="chips">
+            <span class="tag">ETL</span><span class="tag">HTTP API</span><span class="tag">Database</span>
+            <span class="tag">File processing</span><span class="tag">Batch</span>
+            <span class="tag placeholder" title="Placeholder template: fails closed until implemented">Streaming · placeholder, fails closed</span>
+          </div>
+        </div>
+        <div>
+          <h4 class="sc-sub">Stack &amp; extensibility</h4>
+          <ul class="note-list">
+            <li><b>Parsers:</b> Markdown, HTML, JSON, YAML, CSV, XLSX, DOCX, PDF, SQL DDL, OpenAPI, diagrams.</li>
+            <li><b>Pluggable:</b> a secret-provider interface, connectors, evidence/reporting, and MCP-style repo/doc adapters.</li>
+            <li><b>Reusable:</b> versioned knowledge patterns carry across projects.</li>
+          </ul>
+        </div>
+      </div>
+      </details>
+    </article>
   </div>
 </section>
 
@@ -834,8 +1364,8 @@ nav { margin-left: auto; }
     <div class="contact-card">
       <div>
         <span class="kicker">Contact</span>
-        <h2>Let's talk data platforms</h2>
-        <p>Open to conversations about streaming, lakehouse architecture, and getting data ready for AI. Email is the fastest way to reach me.</p>
+        <h2>Let's build something real</h2>
+        <p>Always happy to talk about streaming and lakehouse platforms, and agentic AI that works inside real systems. Email is the fastest way to reach me.</p>
       </div>
       <ul class="contact-list">
         <li><a href="mailto:tabjulaakhil@gmail.com">
@@ -895,7 +1425,7 @@ nav { margin-left: auto; }
 
   /* ---------- Scroll reveal ---------- */
   if (!reduce && hasIO) {
-    var revealEls = $$(".section-head, .about-grid > div, .timeline > li > article, .cap-group, .project, .contact-card");
+    var revealEls = $$(".section-head, .about-grid > div, .timeline > li > article, .approach, .cap-group, .showcase, .project, .contact-card");
     var revealIO = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
         if (!e.isIntersecting) return;
@@ -908,7 +1438,7 @@ nav { margin-left: auto; }
     }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
     revealEls.forEach(function (el) {
       // Stagger siblings in grids
-      if (el.matches(".cap-group, .project, .about-grid > div")) {
+      if (el.matches(".approach, .cap-group, .project, .about-grid > div")) {
         el.style.transitionDelay = (Array.prototype.indexOf.call(el.parentNode.children, el) % 3) * 90 + "ms";
       }
       el.classList.add("reveal");
@@ -1011,8 +1541,29 @@ nav { margin-left: auto; }
     updateRunning();
   }
 
-  /* ---------- Hero pipeline: tooltips ---------- */
-  var openStage = null, lastPointer = "mouse";
+  /* ---------- Hero pipeline: cycle the tools shown in each stage ---------- */
+  var STAGE_TOOLS = [
+    ["APIs & SaaS", "Fivetran", "Data Factory", "Talend", "Auto Loader"],
+    ["Kafka", "Snowpipe", "Spark Streaming", "Streams & Tasks"],
+    ["Spark / Databricks", "dbt", "Snowpark", "PySpark"],
+    ["Snowflake", "Delta Lake", "Redshift", "Azure SQL"],
+    ["Power BI", "ML models", "AI agents", "Tableau"]
+  ];
+  if (!reduce) {
+    STAGE_TOOLS.forEach(function (tools, i) {
+      var texts = $$('.stage[data-stage="' + i + '"] text.tool', fig), k = 0;
+      setTimeout(function () {
+        setInterval(function () {
+          if (document.hidden) return;
+          k = (k + 1) % tools.length;
+          texts.forEach(function (t) { t.classList.add("swap"); });
+          setTimeout(function () { texts.forEach(function (t) { t.textContent = tools[k]; t.classList.remove("swap"); }); }, 350);
+        }, 3200);
+      }, i * 450);
+    });
+  }
+
+  /* ---------- Hero pipeline: tooltips ---------- */  var openStage = null, lastPointer = "mouse";
 
   function hideTip() {
     if (!openStage) return;
@@ -1099,16 +1650,221 @@ nav { margin-left: auto; }
     c.setAttribute("aria-pressed", "false");
     c.addEventListener("click", function () {
       var tool = c.getAttribute("data-tool");
-      setTool(activeTool === tool ? null : tool, c.textContent.trim());
+      setTool(activeTool === tool ? null : tool, c.getAttribute("data-label") || c.textContent.trim());
     });
   });
   barBtn.addEventListener("click", function () { setTool(null); });
+
+  /* ---------- Shared: clickable node groups with arrow-key navigation ---------- */
+  function nodeGroup(nodes, onSelect) {
+    function select(i, focus) {
+      nodes.forEach(function (b, j) { b.setAttribute("aria-pressed", String(i === j)); });
+      if (focus) nodes[i].focus();
+      onSelect(i, nodes[i]);
+    }
+    nodes.forEach(function (btn, i) {
+      btn.setAttribute("aria-pressed", "false");
+      btn.addEventListener("click", function () { select(i); });
+      btn.addEventListener("keydown", function (e) {
+        var d = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[e.key];
+        if (e.key === "Home") d = -i;
+        if (e.key === "End") d = nodes.length - 1 - i;
+        if (d === undefined) return;
+        e.preventDefault();
+        select((i + d + nodes.length) % nodes.length, true);
+      });
+    });
+    return select;
+  }
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+  function animateSteps(list) {
+    if (reduce) return;
+    $$("li", list).forEach(function (li, i) { li.style.setProperty("--i", i); });
+    list.classList.remove("anim"); void list.offsetWidth; list.classList.add("anim");
+  }
+
+  /* ---------- Orchestrator: before / after ---------- */
+  var baBtns = $$("[data-ba]");
+  baBtns.forEach(function (b) {
+    b.addEventListener("click", function () {
+      var which = b.getAttribute("data-ba");
+      baBtns.forEach(function (x) { x.setAttribute("aria-pressed", String(x === b)); });
+      $$("[data-ba-list]").forEach(function (l) {
+        l.hidden = l.getAttribute("data-ba-list") !== which;
+        if (!l.hidden) animateSteps(l);
+      });
+      $("[data-ba-caption]").textContent = which === "before"
+        ? "Seven manual hops, each needing API-specific knowledge, before anyone sees an answer."
+        : "Closer to a guided copilot than a one-shot chatbot: clarification loops, interrupt/resume, editable forms, and post-answer retries are built in.";
+    });
+  });
+
+  /* ---------- Orchestrator: route highlighting on the agent graph ---------- */
+  var agentNodes = $$("#agent-graph .flow-node");
+  var graph = $("#agent-graph");
+  var traceLine = $("#agent-trace");
+  var prompts = $$(".prompt");
+  if (agentNodes.length) {
+    prompts.forEach(function (p) {
+      p.setAttribute("aria-pressed", "false");
+      p.addEventListener("click", function () {
+        var on = p.getAttribute("aria-pressed") !== "true";
+        prompts.forEach(function (x) { x.setAttribute("aria-pressed", String(on && x === p)); });
+        var route = on ? p.getAttribute("data-route").split(" ") : [];
+        graph.classList.toggle("tracing", on);
+        agentNodes.forEach(function (n) { n.classList.toggle("lit", route.indexOf(n.getAttribute("data-agent")) > -1); });
+        traceLine.innerHTML = on ? p.getAttribute("data-trace") : "";   // trusted static markup from data-trace
+      });
+    });
+  }
+
+  /* ---------- Fail-closed agents: pipeline demo ---------- */
+  var fc = { approved: null, conflict: false, idx: 0 };
+  var STAGES = {
+    intake: { label: "Intake", purpose: "Capture the testing request and point at the evidence to use. Nothing beyond what's stated is assumed.",
+      art: function () { return ["intake.json", { request: "Create tests for the orders_sync job", target: "orders_sync", evidence_roots: ["design/", "contracts/", "schema/"], requested_by: "demo.engineer" }]; } },
+    discover: { label: "Discover", purpose: "Inventory and classify every evidence file. Implementation code is recorded as evidence only. It never defines expected behavior.",
+      art: function () { return ["evidence_index.json", { evidence: [
+        { id: "EV-01", path: "design/orders_sync.md", kind: "design doc", approved: true },
+        { id: "EV-02", path: "contracts/orders.openapi.yaml", kind: "OpenAPI", approved: true },
+        { id: "EV-03", path: "schema/orders.sql", kind: "SQL DDL", approved: true },
+        { id: "EV-04", path: "src/orders_sync.py", kind: "implementation", role: "evidence only" } ] }]; } },
+    extract: { label: "Extract", purpose: "Extract only the requirements an approved source actually supports, each linked to its evidence. Unsupported claims are blocked, not filled in.",
+      badge: function (s) { return s.conflict ? "warn:clarify" : ""; },
+      art: function (s) {
+        var reqs = [
+          { id: "REQ-01", text: "orderId is required and unique", source: "EV-03", status: "supported" },
+          { id: "REQ-02", text: "status is one of NEW | PAID | SHIPPED", source: "EV-02", status: "supported" }
+        ];
+        reqs.push(s.conflict
+          ? { id: "REQ-03", statements: [
+              { text: "amount is rounded to 2 decimals", source: "EV-01" },
+              { text: "amount is truncated to 2 decimals", source: "EV-02" } ],
+              status: "needs_clarification", note: "both statements preserved; neither is chosen" }
+          : { id: "REQ-03", text: "amount is non-negative with 2 decimals", source: "EV-01", status: "supported" });
+        return ["requirements.json", { requirements: reqs }];
+      } },
+    propose: { label: "Propose", purpose: "Propose atomic scenarios and detailed test cases, each traced back to its requirements.",
+      badge: function (s) { return s.conflict ? "warn:clarify" : ""; },
+      art: function (s) { return ["scenarios.json", { scenarios: [
+        { id: "SC-01", title: "Valid order syncs with status preserved", requirements: ["REQ-01", "REQ-02"], cases: ["TC-01", "TC-02"], status: "proposed" },
+        { id: "SC-02", title: "Amount precision is preserved", requirements: ["REQ-03"], cases: ["TC-03"], status: s.conflict ? "needs_clarification" : "proposed" },
+        { id: "SC-03", title: "Unknown status is rejected", requirements: ["REQ-02"], cases: ["TC-04"], status: "proposed" } ] }]; } },
+    audit: { label: "Audit", purpose: "Independent auditors check traceability, unsupported claims, and secret exposure. They report findings only and never rewrite business artifacts.",
+      art: function (s) { return ["audit_report.json", {
+        traceability: "every case → scenario → requirement → evidence",
+        unsupported_claims: 0, secrets_exposed: 0,
+        open_clarifications: s.conflict ? ["SC-02 / REQ-03: conflicting statements"] : [],
+        action: "report only" }]; } },
+    await: { label: "Await approval", purpose: "Hard stop. Generation stays locked until a recorded human approval exists. A chat message saying “approved” does not count.",
+      badge: function (s) { return s.approved ? "ok:open" : "lock:gate"; },
+      art: function (s) { return ["gate.json", {
+        gate: s.approved ? "open" : "closed", generate: s.approved ? "unlocked" : "locked",
+        accepts: "recorded approver + timestamp", rejects: ["chat messages", "agent self-approval"] }]; } },
+    approve: { label: "Approve", purpose: "A reviewer records approval of the scenarios and cases. This demo uses a fictional reviewer.",
+      badge: function (s) { return s.approved ? "ok:approved" : ""; },
+      art: function (s) { return ["approval.json", s.approved || { status: "pending", hint: "use “Approve (demo)” below" }]; } },
+    generate: { label: "Generate", locked: true, purpose: "Emit a fixed-layout pytest project with two-way traceability. A gap blocks only the scenario it affects.",
+      badge: function (s) { return s.approved && s.conflict ? "block:SC-02 blocked" : ""; },
+      art: function (s) { return ["generation_report.json", {
+        layout: "fixed", emitted: s.conflict ? ["SC-01", "SC-03"] : ["SC-01", "SC-02", "SC-03"],
+        blocked: s.conflict ? [{ scenario: "SC-02", reason: "REQ-03 needs clarification" }] : [],
+        traceability: "tests ↔ requirements (both directions)", secrets: "redacted" }]; } },
+    ready: { label: "Ready", locked: true, purpose: "Validate and hand off: lint, schema checks, and delivery only to a verified, separate automation checkout.",
+      art: function () { return ["handoff.json", { ruff: "pass", jsonschema: "pass", secrets: "redacted", target: "separate automation checkout (verified)" }]; } },
+    execute: { label: "Execute", locked: true, purpose: "Run the generated suite. Results are recorded as evidence and linked back to requirements.",
+      art: function (s) { return ["pytest output (demo)", s.conflict
+        ? "$ pytest -q\n...                                      [100%]\n3 passed\n\nSC-02 not generated: blocked pending clarification of REQ-03"
+        : "$ pytest -q\n....                                     [100%]\n4 passed"]; } }
+  };
+  var fcNodes = $$("#fc-flow .flow-node");
+  var fcDetail = $("#fc-detail"), fcGate = $("#fc-gate"), fcConflict = $("#fc-conflict");
+
+  function badgeHTML(spec) {
+    if (!spec) return "";
+    var p = spec.split(":"); return '<span class="badge ' + p[0] + '">' + esc(p[1]) + "</span>";
+  }
+  function renderFc() {
+    fcNodes.forEach(function (n) {
+      var st = STAGES[n.getAttribute("data-stage-id")];
+      var locked = !!st.locked && !fc.approved;
+      n.classList.toggle("locked", locked);
+      $(".nb", n).innerHTML = locked ? badgeHTML("lock:locked") : badgeHTML(st.badge && st.badge(fc));
+    });
+    fcGate.innerHTML = fc.approved
+      ? '<span class="badge ok">Gate open</span> approved by ' + esc(fc.approved.approver)
+      : '<span class="badge lock">Gate closed</span> generate locked';
+
+    var node = fcNodes[fc.idx], id = node.getAttribute("data-stage-id"), st = STAGES[id];
+    var locked = !!st.locked && !fc.approved;
+    var html = "<h5>" + esc(st.label) + " " + (locked ? badgeHTML("lock:locked") : badgeHTML(st.badge && st.badge(fc))) + "</h5>";
+    html += "<p>" + esc(st.purpose) + "</p>";
+    var art = locked
+      ? ["gate.json", { stage: id, status: "locked", reason: "awaiting recorded human approval", note: "chat cannot approve" }]
+      : st.art(fc);
+    html += '<div class="artifact-head"><span>' + esc(art[0]) + "</span><span>fictional artifact</span></div>";
+    html += '<pre class="artifact">' + esc(typeof art[1] === "string" ? art[1] : JSON.stringify(art[1], null, 2)) + "</pre>";
+    if (id === "approve" && !fc.approved) html += '<p style="margin-top:.8rem"><button type="button" class="btn-sm primary" data-fc-approve>Approve (demo)</button></p>';
+    if (locked) html += '<p style="margin-top:.8rem"><button type="button" class="btn-sm" data-fc-goto="approve">Go to approval</button></p>';
+    fcDetail.innerHTML = html;
+  }
+  var fcSelect = fcNodes.length ? nodeGroup(fcNodes, function (i) { fc.idx = i; renderFc(); }) : null;
+  function fcReset() {
+    fc.approved = null; fc.conflict = false; fcConflict.checked = false;
+    fcSelect(0);
+  }
+  if (fcSelect) {
+    fcDetail.addEventListener("click", function (e) {
+      if (e.target.closest("[data-fc-approve]")) {
+        fc.approved = { approver: "demo.reviewer", approved_at: new Date().toISOString().replace(/\.\d+Z$/, "Z"),
+          scope: fc.conflict ? ["SC-01", "SC-03"] : ["SC-01", "SC-02", "SC-03"], channel: "approval record (not chat)" };
+        renderFc();
+      }
+      var go = e.target.closest("[data-fc-goto]");
+      if (go) fcSelect(fcNodes.map(function (n) { return n.getAttribute("data-stage-id"); }).indexOf(go.getAttribute("data-fc-goto")), true);
+    });
+    fcConflict.addEventListener("change", function () {
+      fc.conflict = fcConflict.checked;
+      fc.approved = null;   // artifacts changed, so any previous approval no longer applies
+      renderFc();
+    });
+    $("#fc-reset").addEventListener("click", fcReset);
+    fcSelect(0);
+  }
+
+  /* ---------- Fail-closed agents: generated project explorer ---------- */
+  var FILES = {
+    "README.md": "# orders_sync_tests\n\nGenerated from approved artifacts only.\n\n- Approval:      approvals/approval.json\n- Traceability:  traceability/matrix.csv\n- Evidence:      evidence/evidence_index.json\n\nRun: pytest -q",
+    "pyproject.toml": "[tool.pytest.ini_options]\ntestpaths = [\"tests\"]\nmarkers = [\n  \"scenario(id): scenario id\",\n  \"req(id): requirement id\",\n]\n\n[tool.ruff]\nline-length = 100",
+    "conftest.py": "import pytest\n\nfrom harness import OrdersSyncClient, load_settings\n\n\n@pytest.fixture\ndef order():\n    return {\"orderId\": \"ORD-1001\", \"status\": \"NEW\", \"amount\": 25.00}\n\n\n@pytest.fixture\ndef sync():\n    return OrdersSyncClient(load_settings(\"config/settings.yaml\"))",
+    "approvals/approval.json": JSON.stringify({ approver: "demo.reviewer", approved_at: "2026-01-15T10:42:00Z", scope: ["SC-01", "SC-02", "SC-03"], channel: "approval record (not chat)" }, null, 2),
+    "traceability/matrix.csv": "test_id,scenario,requirement,evidence\nTC-01,SC-01,REQ-01,EV-03\nTC-02,SC-01,REQ-02,EV-02\nTC-03,SC-02,REQ-03,EV-01\nTC-04,SC-03,REQ-02,EV-02",
+    "evidence/evidence_index.json": JSON.stringify({ evidence: [
+      { id: "EV-01", kind: "design doc" }, { id: "EV-02", kind: "OpenAPI" }, { id: "EV-03", kind: "SQL DDL" },
+      { id: "EV-04", kind: "implementation", role: "evidence only" } ] }, null, 2),
+    "tests/test_sc01_valid_order_sync.py": "import pytest\n\n\n@pytest.mark.scenario(\"SC-01\")\n@pytest.mark.req(\"REQ-01\")\ndef test_tc01_order_id_required_and_unique(order, sync):\n    \"\"\"TC-01: orderId is required and unique (EV-03).\"\"\"\n    result = sync.run([order, dict(order)])\n    assert result.rejected_duplicates == 1\n\n\n@pytest.mark.scenario(\"SC-01\")\n@pytest.mark.req(\"REQ-02\")\ndef test_tc02_status_preserved(order, sync):\n    \"\"\"TC-02: status is preserved through sync (EV-02).\"\"\"\n    result = sync.run([order])\n    assert result.rows[0][\"status\"] == \"NEW\"",
+    "tests/test_sc02_amount_precision.py": "import pytest\n\n\n@pytest.mark.scenario(\"SC-02\")\n@pytest.mark.req(\"REQ-03\")\ndef test_tc03_amount_two_decimals(order, sync):\n    \"\"\"TC-03: amount is non-negative with 2 decimals (EV-01).\"\"\"\n    order[\"amount\"] = 19.999\n    result = sync.run([order])\n    assert result.rows[0][\"amount\"] == pytest.approx(20.00)",
+    "tests/test_sc03_unknown_status.py": "import pytest\n\n\n@pytest.mark.scenario(\"SC-03\")\n@pytest.mark.req(\"REQ-02\")\ndef test_tc04_unknown_status_rejected(order, sync):\n    \"\"\"TC-04: status outside NEW | PAID | SHIPPED is rejected (EV-02).\"\"\"\n    order[\"status\"] = \"ARCHIVED\"\n    result = sync.run([order])\n    assert result.rejected == 1",
+    "config/settings.yaml": "target: orders_sync\nsecret_ref: secret-provider://orders_sync/api_key\napi_key: \"***REDACTED***\"   # resolved at runtime, never written to disk"
+  };
+  var fileBtns = $$(".tree .file");
+  fileBtns.forEach(function (b) {
+    b.setAttribute("aria-pressed", String(b.getAttribute("data-file") === "README.md"));
+    b.addEventListener("click", function () {
+      var f = b.getAttribute("data-file");
+      fileBtns.forEach(function (x) { x.setAttribute("aria-pressed", String(x === b)); });
+      $("#tree-path").textContent = "orders_sync_tests/" + f;
+      $("#tree-preview").textContent = FILES[f];
+    });
+  });
+  if (fileBtns.length) { $("#tree-path").textContent = "orders_sync_tests/README.md"; $("#tree-preview").textContent = FILES["README.md"]; }
 
   /* ---------- Escape closes things ---------- */
   document.addEventListener("keydown", function (e) {
     if (e.key !== "Escape") return;
     hideTip();
     if (activeTool) setTool(null);
+    if (fcSelect && document.activeElement && document.activeElement.closest("#fc-demo")) fcReset();
   });
 })();
 </script>
