@@ -80,8 +80,13 @@ favicon with initials "AT".
 - Build in stages: structure first, then styling, then animations. Show the user after each stage.
 
 ## Build status
-- Stage 1 (structure): in progress
-- Stage 2 (styling): pending
-- Stage 3 (animations/interactivity): pending
+- Stage 1 (structure): done
+- Stage 2 (styling): done (theme tokens on :root / [data-theme="light"], toggle persists to localStorage;
+  horizontal pipeline SVG `.pipe-h` on desktop, vertical `.pipe-v` under 720px)
+- Stage 3 (animations/interactivity): done. All JS is one IIFE at the end of index.html: theme toggle,
+  scroll reveal (IntersectionObserver), 10+ counter, rAF pipeline packets along `.links path`,
+  stage tooltips (hover / focus-visible / tap), chip filter driven by `data-tool` on chips and
+  `data-tools` on `.filterable` roles/projects, floating `.filter-bar`. Reduced motion → static packets, no reveal/counter.
+  To add a tool: give the chip a `data-tool` slug and add that slug to the relevant `data-tools` lists.
 - `resume.pdf` (repo root) is exported from `sources/AkhilTabjula_Resume.docx` via Word with the phone
   number stripped from the contact line. Re-export the same way whenever the .docx changes.
