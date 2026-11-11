@@ -8,7 +8,7 @@ It will be hosted on GitHub Pages.
 
 ## WHO
 Akhil Tabjula — Senior Data Engineer, 10+ years. Builds streaming, lakehouse,
-and ML data platforms on Azure, Databricks, and Snowflake.
+and ML data platforms on Databricks and Snowflake, across Azure and AWS (AWS = POCs).
 Positioning (Nov 2026): site title is "Data & AI Engineer", targeting BOTH Senior Data Engineer and
 Forward Deployed Engineer roles with one story (no view toggle). The site is a portfolio, not a job ad:
 never add "Open to … roles" / job-seeking lines anywhere (hero, contact, meta).
@@ -36,11 +36,11 @@ Own it end to end, Integrate messy real systems, Make it trustworthy). "Zero to 
 (`data-tool="w-*"`, `data-label` sets the filter-bar text) that reuses the chip filter; add the `w-*`
 slug to a role/project's `data-tools` only when that item truly demonstrates the strength.
 
-## EXPERIENCE ("The story so far": company timeline told as a story, NOT bullets. Each role = title (no dates), an accent `.chapter` one-liner, 1–3 short business-focused paragraphs. No per-role chips; `data-tools` lists the full stack so capability chips still highlight it.)
-- Coca-Cola Southwest Beverages, Oct 2023–Present: joined as sole data engineer,
-  built the function and now lead a team of 4 within the Advanced Analytics org.
+## EXPERIENCE ("The story so far": company timeline told as a story, NOT bullets. Each role = title (no dates), an accent `.chapter` one-liner, 1–3 short business-focused paragraphs, no bold text. No per-role chips; `data-tools` lists the full stack so capability chips still highlight it.)
+- Coca-Cola Southwest Beverages, Oct 2023–Present: role title shown as "Data Platforms & AI".
+  Tone: modest. Do NOT say "only/sole data engineer", "built from the ground up", "lead a team", or "Advanced Analytics org".
   Also: suggested-order engine, trade-promotion analytics, CARTO/H3, and recent agentic AI (agents, MCP servers, RAG + vector DB), described generically, never linked to the showcases.
-- Victoria's Secret, Jun 2021–Sep 2023: led Teradata→Snowflake migration;
+- Victoria's Secret, Jun 2021–Sep 2023: worked on Teradata→Snowflake migration (don't say "led");
   re-architected real-time POS ingestion from Mulesoft to Kafka.
 - Inspire Brands, Jan–May 2021
 - Wipro Technologies, Aug 2014–Aug 2019: built features for Dynamics 365
