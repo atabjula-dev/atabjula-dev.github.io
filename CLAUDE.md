@@ -55,7 +55,7 @@ slug to a role/project's `data-tools` only when that item truly demonstrates the
 - Transformation & Modeling: dbt, Spark, Snowpark, Kimball, Data Vault
 - Data Quality & Governance: Great Expectations, RBAC, dynamic masking,
   column-level security
-- AI & ML Data: LangChain/LangGraph, RAG pipelines, MCP servers & agents, vector databases, embeddings, LLM integration & tool calling
+- AI & ML Data: LangChain/LangGraph, CrewAI, RAG pipelines, MCP servers & agents, vector databases, embeddings, LLM integration & tool calling
 - Cloud & DevOps: Azure, AWS (S3, Glue, Lambda, Batch), Docker, Kubernetes,
   GitHub Actions, Databricks Asset Bundles
 - Apps & Delivery: Python, FastAPI, React + TypeScript, REST / GraphQL APIs, OAuth2, Power BI
@@ -96,12 +96,12 @@ favicon with initials "AT".
 
 ## AGENTIC AI (second group inside #projects, anchor `#agents` on its `.group-head`)
 Projects is ONE section ("Selected work") with two `.group-head` groups: "Data platforms" (the 2
-collapsible pattern cards) first, then "Agentic AI" (the 2 showcases). No separate nav item.
+collapsible pattern cards) first, then "Agentic AI" (the 3 showcases). No separate nav item.
 Keep showcases lean: the Orchestrator graph is static nodes with LLM/Code badges (no per-agent
 detail panel), lit by 3 "Try a route" prompts; no "Add an API" callout. No-Guess shows safety strip +
 "Walk the pipeline" only; the generated-project explorer lives inside its deep-dive.
-Two interactive showcases, sourced from `sources/agentic_api_orchestrator.md` and
-`sources/no-guess-test-agents.md` (local only, gitignored). They replaced the old Project 3 card.
+Three interactive showcases. The first two are sourced from `sources/agentic_api_orchestrator.md` and
+`sources/no-guess-test-agents.md` (local only, gitignored); the third from the `multi_agent_debate` repo. They replaced the old Project 3 card.
 Each showcase keeps only the pitch + interactive demos visible; supporting detail lives in a
 collapsed `<details class="deep-dive">` ("Architecture & design details"). Avoid restating the same idea.
 1. Agentic API Orchestrator: before/after toggle, clickable 8-agent graph, 3 "Try a route" prompts
@@ -110,6 +110,12 @@ collapsed `<details class="deep-dive">` ("Architecture & design details"). Avoid
 2. No-Guess Test Agents (fail-closed test automation): 10-stage clickable pipeline demo
    (approval gate locks Generate/Ready/Execute; conflict toggle → clarify → blocks only SC-02;
    toggling conflict invalidates approval), skills vs auditors, generated-project file explorer.
+3. Multi-Agent Debate (`#debate`, labeled a proof of concept): LangGraph loop (openings → 2 debate rounds →
+   judge verdict) with CrewAI personas and a model setting per agent through an LLM gateway; Gradio live UI.
+   Demo is a 10-turn stepper (`#debate-graph`, Next turn / Play all / Reset) plus a 3-item guardrail strip.
+   The third debater is called "Independent" on the site (never the model/brand name used in the code).
+   Do NOT link the GitHub repo from the site while it contains employer hostnames or local paths.
+   Tagged `w-trust` only (it is a POC, so not `w-e2e` / `w-users`).
 
 Confidentiality rules for these projects (strict):
 - No employer names, internal product/API names, hostnames, scopes, env vars, IDs, repos.

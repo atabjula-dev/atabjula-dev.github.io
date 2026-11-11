@@ -474,7 +474,11 @@ nav { margin-left: auto; }
 .flow-detail h5 { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; margin: 0 0 .4rem; font-size: 1rem; }
 .flow-detail p { margin: 0 0 .7rem; color: var(--muted); font-size: .92rem; }
 .flow-detail p:last-child { margin-bottom: 0; }
-#agent-graph .flow-node { cursor: default; gap: .45rem; }
+#agent-graph .flow-node, #debate-graph .flow-node { cursor: default; gap: .45rem; }
+#debate-graph .flow-node:hover { border-color: var(--border); }
+#debate-graph .flow-node.lit:hover { border-color: var(--accent); }
+#debate-graph .flow-node.now { background: var(--accent-soft); }
+.btn-sm:disabled { opacity: .45; cursor: default; }
 #agent-graph .flow-node:hover { border-color: var(--border); }
 #agent-graph .flow-node.lit:hover { border-color: var(--accent); }
 
@@ -905,6 +909,7 @@ nav { margin-left: auto; }
         <h3>AI &amp; ML Data</h3>
         <div class="chips">
           <button class="chip" type="button" data-tool="langgraph">LangChain / LangGraph</button>
+          <button class="chip" type="button" data-tool="crewai">CrewAI</button>
           <button class="chip" type="button" data-tool="rag">RAG pipelines</button>
           <button class="chip" type="button" data-tool="mcp">MCP servers &amp; agents</button>
           <button class="chip" type="button" data-tool="vector-db">Vector databases</button>
@@ -1035,7 +1040,7 @@ nav { margin-left: auto; }
     <!-- ===== Agentic AI (same section, second group) ===== -->
     <div class="group-head" id="agents">
       <h3 class="group-title">Agentic AI: agents that ask instead of guess</h3>
-      <p>Two systems I designed and built end to end (data layer, agents, and UI) around one idea: reliable agents know when <em>not</em> to act.</p>
+      <p>Three systems I designed and built around one idea: reliable agents don't fill gaps with guesses. They ask, they stop, or they get challenged.</p>
     </div>
 
     <!-- ========== Showcase 1: Agentic API Orchestrator ========== -->
@@ -1302,6 +1307,108 @@ Generated from approved artifacts only.</pre>
             <li><b>Pluggable:</b> a secret-provider interface, connectors, evidence/reporting, and MCP-style repo/doc adapters.</li>
             <li><b>Reusable:</b> versioned knowledge patterns carry across projects.</li>
           </ul>
+        </div>
+      </div>
+      </details>
+    </article>
+
+    <!-- ========== Showcase 3: Multi-Agent Debate ========== -->
+    <article class="showcase filterable" id="debate" data-tools="langgraph crewai python gradio litellm llm w-trust">
+      <header class="sc-head">
+        <span class="sc-tag">Multi-agent · Proof of concept</span>
+        <h3>Multi-Agent Debate</h3>
+        <p class="sc-pitch">Three opposing AI strategists argue a business question over structured rounds, audit each other's claims, and an impartial judge agent delivers the decision with its reasoning shown.</p>
+        <div class="chips">
+          <button class="chip" type="button" data-tool="langgraph">LangGraph</button>
+          <button class="chip" type="button" data-tool="crewai">CrewAI</button>
+          <button class="chip" type="button" data-tool="python">Python</button>
+          <button class="chip" type="button" data-tool="gradio">Gradio</button>
+          <button class="chip" type="button" data-tool="litellm">LLM gateway (LiteLLM)</button>
+        </div>
+        <p class="sc-role">Designed and built as a proof of concept: a LangGraph state machine that loops the debate rounds, CrewAI personas for each debater and the judge, a separate model setting per agent through one LLM gateway, and a live web UI that redraws the debate after every turn.</p>
+      </header>
+
+      <div class="sc-block">
+        <div class="safety">
+          <div><b>No easy agreement</b><span>Debaters can't concede to be polite. Every turn must critique, counter, and re-defend.</span></div>
+          <div><b>No invented numbers</b><span>Without data, a claim has to be labeled a hypothetical risk or an unverified assumption.</span></div>
+          <div><b>Judged on logic, not tone</b><span>The judge ignores confidence and rhetoric, and audits the facts before deciding.</span></div>
+        </div>
+      </div>
+
+      <!-- Debate stepper -->
+      <div class="sc-block" id="debate-demo">
+        <h4>Step through a debate</h4>
+        <p>Ten turns for a question like <q>Should we cut costs or launch a new product line?</q></p>
+        <div class="fc-controls">
+          <button type="button" class="btn-sm primary" id="db-next">Next turn</button>
+          <button type="button" class="btn-sm" id="db-play">Play all</button>
+          <button type="button" class="btn-sm" id="db-reset">Reset</button>
+          <span class="gate-status" id="db-count" aria-hidden="true">0 / 10</span>
+        </div>
+        <div class="lanes" id="debate-graph">
+          <div class="lane">
+            <span class="lane-label">Open</span>
+            <span class="flow-pill">Opening pitch</span><span class="flow-arrow" aria-hidden="true">→</span>
+            <span class="flow-node" data-turn="1"><span class="n">1</span>Bull</span>
+            <span class="flow-node" data-turn="2"><span class="n">2</span>Bear</span>
+            <span class="flow-node" data-turn="3"><span class="n">3</span>Independent</span>
+          </div>
+          <div class="lane">
+            <span class="lane-label">Round 1</span>
+            <span class="flow-pill">Strategy critique</span><span class="flow-arrow" aria-hidden="true">→</span>
+            <span class="flow-node" data-turn="4"><span class="n">4</span>Bull</span>
+            <span class="flow-node" data-turn="5"><span class="n">5</span>Bear</span>
+            <span class="flow-node" data-turn="6"><span class="n">6</span>Independent</span>
+          </div>
+          <div class="lane">
+            <span class="lane-label">Round 2</span>
+            <span class="flow-pill">Fact-check audit</span><span class="flow-arrow" aria-hidden="true">→</span>
+            <span class="flow-node" data-turn="7"><span class="n">7</span>Bull</span>
+            <span class="flow-node" data-turn="8"><span class="n">8</span>Bear</span>
+            <span class="flow-node" data-turn="9"><span class="n">9</span>Independent</span>
+          </div>
+          <div class="lane">
+            <span class="lane-label">Verdict</span>
+            <span class="flow-pill">Full transcript</span><span class="flow-arrow" aria-hidden="true">→</span>
+            <span class="flow-node" data-turn="10"><span class="n">10</span>Executive Judge</span><span class="flow-arrow" aria-hidden="true">→</span>
+            <span class="flow-pill">Decision, audit, risks, next actions</span>
+          </div>
+        </div>
+        <p class="trace-line" id="debate-trace" aria-live="polite"></p>
+      </div>
+
+      <details class="deep-dive">
+      <summary>Architecture &amp; design details</summary>
+
+      <div class="sc-block sc-cols">
+        <div>
+          <h4 class="sc-sub">Architecture layers</h4>
+          <ol class="layers">
+            <li><span class="ln">1</span><span><b>Web UI and CLI</b><span class="d">Gradio board with a flow graph that grows turn by turn, a progress status, an executive brief, and the full transcript</span></span></li>
+            <li><span class="ln">2</span><span><b>Orchestration</b><span class="d">LangGraph state graph: openings, a debate round on a conditional loop, then the verdict</span></span></li>
+            <li><span class="ln">3</span><span><b>Personas</b><span class="d">CrewAI agents with a role, a goal, and shared guardrail blocks; each turn runs as a single-agent crew</span></span></li>
+            <li><span class="ln">4</span><span><b>Models</b><span class="d">One OpenAI-compatible LLM gateway, with a model setting per agent</span></span></li>
+          </ol>
+        </div>
+        <div>
+          <h4 class="sc-sub">Design decisions</h4>
+          <ul class="note-list">
+            <li><b>One job per framework:</b> LangGraph owns state and control flow; CrewAI owns the persona and prompt for each turn.</li>
+            <li><b>Append-only state:</b> each agent's responses accumulate, so the judge reads the whole transcript instead of a summary.</li>
+            <li><b>Round 2 changes the objective:</b> from winning the argument to auditing the other side's claims for unlabeled statistics and logical leaps.</li>
+            <li><b>Fixed output schema:</b> every turn uses the same three headings, so the UI extracts each position with plain parsing, not another LLM call.</li>
+            <li><b>A model per seat:</b> debaters and the judge can each run on a different model.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="sc-block">
+        <h4>What the verdict contains</h4>
+        <div class="chips">
+          <span class="tag">Selected position: Bull, Bear, Independent, or Hybrid</span><span class="tag">Agent-by-agent analysis</span>
+          <span class="tag">Logic &amp; fact-check audit</span><span class="tag">Decision &amp; rationale</span>
+          <span class="tag">Key risks</span><span class="tag">Next 90-day actions</span>
         </div>
       </div>
       </details>
@@ -1783,6 +1890,51 @@ Generated from approved artifacts only.</pre>
     });
   });
   if (fileBtns.length) { $("#tree-path").textContent = "orders_sync_tests/README.md"; $("#tree-preview").textContent = FILES["README.md"]; }
+
+  /* ---------- Multi-agent debate: turn stepper ---------- */
+  var dbNodes = $$("#debate-graph .flow-node");
+  if (dbNodes.length) {
+    var DB_TURNS = [
+      "Opening · <b>Bull</b> makes the growth case: expand, launch, scale.",
+      "Opening · <b>Bear</b> makes the risk case: protect the core and preserve capital.",
+      "Opening · <b>Independent</b> rejects the either/or and argues for staged options.",
+      "Round 1 · <b>Bull</b> receives Bear's and Independent's latest statements and must critique, counter, and re-defend. Agreeing is not allowed.",
+      "Round 1 · <b>Bear</b> does the same against Bull and Independent. A confident tone is treated as a red flag, not as evidence.",
+      "Round 1 · <b>Independent</b> stress-tests both sides for hidden assumptions.",
+      "Round 2 · the objective switches from advocacy to audit. <b>Bull</b> hunts for unlabeled statistics and logical leaps in the other two.",
+      "Round 2 · <b>Bear</b> audits Bull's and Independent's claims the same way.",
+      "Round 2 · <b>Independent</b> audits both. Anything unverifiable has to be labeled an assumption.",
+      "Verdict · the <b>Judge</b> reads the full transcript, ignores tone, penalizes invented numbers and unexplained stance shifts, then picks Bull, Bear, Independent, or a hybrid."
+    ];
+    var dbGraph = $("#debate-graph"), dbTrace = $("#debate-trace"), dbCount = $("#db-count");
+    var dbNext = $("#db-next"), dbPlay = $("#db-play"), dbStep = 0, dbTimer = null;
+    var dbRender = function () {
+      dbGraph.classList.toggle("tracing", dbStep > 0);
+      dbNodes.forEach(function (n) {
+        var t = +n.getAttribute("data-turn");
+        n.classList.toggle("lit", t <= dbStep);
+        n.classList.toggle("now", t === dbStep);
+      });
+      dbTrace.innerHTML = dbStep ? DB_TURNS[dbStep - 1] : "";   // trusted static markup
+      dbCount.textContent = dbStep + " / " + DB_TURNS.length;
+      dbNext.disabled = dbPlay.disabled = dbStep >= DB_TURNS.length;
+    };
+    var dbStop = function () { if (dbTimer) { clearInterval(dbTimer); dbTimer = null; } };
+    var dbAdvance = function () {
+      if (dbStep < DB_TURNS.length) dbStep++;
+      if (dbStep >= DB_TURNS.length) dbStop();
+      dbRender();
+    };
+    dbNext.addEventListener("click", function () { dbStop(); dbAdvance(); });
+    dbPlay.addEventListener("click", function () {
+      dbStop();
+      if (reduce) { dbStep = DB_TURNS.length; dbRender(); return; }
+      dbAdvance();
+      if (dbStep < DB_TURNS.length) dbTimer = setInterval(dbAdvance, 1400);
+    });
+    $("#db-reset").addEventListener("click", function () { dbStop(); dbStep = 0; dbRender(); });
+    dbRender();
+  }
 
   /* ---------- Escape closes things ---------- */
   document.addEventListener("keydown", function (e) {
