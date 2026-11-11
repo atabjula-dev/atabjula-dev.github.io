@@ -212,20 +212,9 @@ nav { margin-left: auto; }
 .tooltip strong { display: block; color: var(--accent); margin-bottom: .2rem; font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; }
 
 /* ================= About ================= */
-.about-grid { display: grid; grid-template-columns: 1.6fr 1fr; gap: clamp(2rem, 5vw, 4rem); align-items: center; }
-.about-grid p { color: var(--muted); font-size: 1.05rem; }
-.about-grid p strong { color: var(--text); }
-.personal {
-  padding: 1rem 1.2rem; border-radius: var(--radius-sm); border: 1px dashed var(--border); background: var(--surface);
-}
-.stat {
-  display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
-  padding: 2.5rem 1.5rem; border-radius: var(--radius); background: var(--surface); border: 1px solid var(--border);
-  box-shadow: var(--shadow);
-}
-.stat-num { font-size: clamp(4rem, 3rem + 4vw, 6rem); font-weight: 800; line-height: 1; letter-spacing: -.04em; font-variant-numeric: tabular-nums; }
-.stat-num .plus { color: var(--accent); }
-.stat-label { margin-top: .6rem; color: var(--muted); font-weight: 500; }
+.about-grid { max-width: 72ch; }
+.about-grid p { color: var(--muted); font-size: 1.1rem; }
+.about-grid p strong { color: var(--text); font-weight: 600; }
 
 /* ================= Chips ================= */
 .chips { display: flex; flex-wrap: wrap; gap: .45rem; }
@@ -268,9 +257,10 @@ nav { margin-left: auto; }
 .role header { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: .25rem 1rem; margin-bottom: .6rem; }
 .role h3 { margin: 0; }
 .meta { margin: 0; color: var(--muted); font-size: .9rem; }
-.role ul { margin: 0 0 1rem; color: var(--muted); }
-.role li { margin-bottom: .35rem; }
-.role li::marker { color: var(--accent); }
+.role .chapter { margin: 0 0 .9rem; font-size: 1.08rem; font-weight: 600; color: var(--accent); line-height: 1.4; }
+.role p:not(.meta):not(.chapter) { margin: 0 0 .8rem; color: var(--muted); }
+.role p:last-child { margin-bottom: 0; }
+.role p strong { color: var(--text); font-weight: 600; }
 .edu article { padding: 1.2rem 1.5rem; border-radius: var(--radius); border: 1px dashed var(--border); }
 .edu ul { list-style: none; padding: 0; margin: 0; color: var(--muted); }
 .edu strong { color: var(--text); }
@@ -361,9 +351,7 @@ nav { margin-left: auto; }
 
 /* ================= Responsive ================= */
 @media (max-width: 860px) {
-  .about-grid, .contact-card { grid-template-columns: 1fr; }
-  .stat { flex-direction: row; gap: 1rem; padding: 1.5rem; justify-content: flex-start; text-align: left; }
-  .stat-label { margin: 0; }
+  .contact-card { grid-template-columns: 1fr; }
 }
 @media (max-width: 720px) {
   .nav-links { display: none; }
@@ -608,9 +596,6 @@ nav { margin-left: auto; }
 .tooltip:not([hidden]) { animation: tip-in .18s ease-out; }
 @keyframes tip-in { from { opacity: 0; transform: translateY(-4px); } }
 
-/* "10+" plus pops in after the count finishes */
-.stat .plus { display: inline-block; transition: opacity .4s ease, transform .4s cubic-bezier(.3,1.6,.5,1); }
-.stat .plus.pending { opacity: 0; transform: scale(.4); }
 
 /* Project diagrams: data flows along connectors while a card is open */
 .arch .arch-links path { stroke-dasharray: 6 6; }
@@ -680,9 +665,9 @@ nav { margin-left: auto; }
     <h1>Akhil Tabjula</h1>
     <p class="lede">I build streaming, lakehouse, and ML data platforms on Azure, Databricks, and Snowflake, then ship agentic AI on top of them: end to end, working directly with the people who use it.</p>
     <div class="cta-row">
-      <a class="btn btn-primary" href="resume.pdf" download>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 21h16"/></svg>
-        Download Resume
+      <a class="btn btn-primary" href="mailto:tabjulaakhil@gmail.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+        Email me
       </a>
       <a class="btn" href="https://www.linkedin.com/in/akhil172" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3zM9.5 9.5h3.8v1.6h.06c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.77 2.65 4.77 6.1V21h-4v-5.1c0-1.22-.02-2.79-1.7-2.79-1.7 0-1.96 1.33-1.96 2.7V21h-4z"/></svg>
@@ -758,14 +743,9 @@ nav { margin-left: auto; }
 <section id="about">
   <div class="wrap about-grid">
     <div>
-      <div class="section-head"><span class="kicker">About</span><h2>From data plumbing to shipped AI</h2></div>
-      <p>I've worked through several technology cycles — Hive and MapReduce to Spark and Databricks, nightly batch ETL to real-time Kafka pipelines, and most recently agentic AI. The focus hasn't changed: data infrastructure that's reliable, well-governed, and trusted by the people making decisions with it.</p>
-      <p>Today I lead a data engineering team within an Advanced Analytics organization. The work I enjoy most sits close to the business: scoping problems with stakeholders, prototyping fast, demoing early, and taking what works all the way to production.</p>
-      <p class="personal">Off the clock, I collect <strong>coins</strong>, <strong>currency</strong>, and <strong>travel mugs</strong>.</p>
-    </div>
-    <div class="stat" aria-label="10+ years of experience">
-      <span class="stat-num"><span class="counter" data-count="10">10</span><span class="plus">+</span></span>
-      <span class="stat-label">years in data engineering</span>
+      <div class="section-head"><span class="kicker">About</span><h2>The data layer AI actually runs on</h2></div>
+      <p>An AI product is only as good as the data underneath it. That's where I've spent the last decade: from Hive and MapReduce to Spark and Databricks, from nightly batch to real-time Kafka streams, and now to <strong>agents that reason over governed data, call real systems, and explain the answer in plain language</strong>.</p>
+      <p>Today I lead a data engineering team inside an Advanced Analytics organization. The work I like most starts with the business: pin down the real problem, prototype fast, demo early, and carry what works into production with the guardrails it needs. RAG pipelines, MCP servers, and LangGraph agents now sit in the same toolkit as Spark and dbt, and the bar is the same for all of them: <strong>reliable, governed, and trusted by the people who use it</strong>.</p>
     </div>
   </div>
 </section>
@@ -806,47 +786,31 @@ nav { margin-left: auto; }
 <!-- ================= EXPERIENCE ================= -->
 <section id="experience">
   <div class="wrap">
-    <div class="section-head"><span class="kicker">Experience</span><h2>Where I've built</h2></div>
+    <div class="section-head"><span class="kicker">Experience</span><h2>The story so far</h2></div>
     <ol class="timeline">
 
       <li>
-        <article class="role filterable" data-tools="databricks snowflake dbt kafka langgraph azure spark carto h3 powerbi w-users w-e2e">
+        <article class="role filterable" data-tools="databricks snowflake dbt spark azure python powerbi langgraph rag mcp vector-db embeddings llm carto h3 w-users w-e2e w-integrate">
           <header>
             <h3>Coca-Cola Southwest Beverages</h3>
-            <p class="meta">Senior Data Engineer · <time datetime="2023-10">Oct 2023</time> – Present</p>
+            <p class="meta">Senior Data Engineer · Team lead</p>
           </header>
-          <ul>
-            <li>Joined as the sole data engineer, built the data engineering function from the ground up, and now lead a team of four within the Advanced Analytics org.</li>
-            <li>Scope problems directly with sales and business stakeholders, demo prototypes to leadership, and ship tools non-engineers use, including the data foundation for a real-time suggested-order engine that blends historical sales with ML predictions.</li>
-            <li>Built Azure Function Apps and REST APIs connecting Power BI, Databricks, Data Lake, and Azure SQL so KPI data flows end to end, plus CARTO workflows with H3 indexing for location intelligence.</li>
-          </ul>
-          <div class="chips">
-            <button class="chip" type="button" data-tool="databricks">Databricks</button>
-            <button class="chip" type="button" data-tool="snowflake">Snowflake</button>
-            <button class="chip" type="button" data-tool="dbt">dbt</button>
-            <button class="chip" type="button" data-tool="kafka">Kafka</button>
-            <button class="chip" type="button" data-tool="langgraph">LangGraph</button>
-          </div>
+          <p class="chapter">Building a data function from zero, then putting AI in front of the business.</p>
+          <p>I joined as the only data engineer and built the function from the ground up: the platform, the standards, and the team of four I now lead inside the Advanced Analytics org. The first job was a foundation people could rely on. That meant Databricks and Snowflake pipelines, dbt models, and Azure Functions and REST APIs wiring the lake, Azure SQL, Dataverse, and Power BI together so sales and operations finally looked at the same numbers.</p>
+          <p>On that foundation we ship tools the business uses every day. I built the data layer behind a <strong>real-time suggested-order engine</strong> that blends sales history, ML predictions, and external event signals; led <strong>trade-promotion analytics</strong> with predictive allocation models; and brought <strong>location intelligence</strong> to the table with CARTO and H3.</p>
+          <p>The newest chapter is <strong>agentic AI</strong>: LangGraph agents that automate multi-step analysis and answer business questions in plain language, <strong>MCP servers</strong> that give those agents controlled access to data and internal tools, and <strong>RAG pipelines</strong> that embed documentation and metadata into a vector database so every answer stays grounded in a real source, with an eye on token cost. I scope this work directly with sales and business stakeholders, demo to leadership early, and carry what works to production.</p>
         </article>
       </li>
 
       <li>
-        <article class="role filterable" data-tools="snowflake kafka snowpark dbt snowpipe w-integrate w-trust">
+        <article class="role filterable" data-tools="snowflake kafka snowpark dbt snowpipe azure w-integrate w-trust">
           <header>
             <h3>Victoria's Secret</h3>
-            <p class="meta">Senior Data Engineer · <time datetime="2021-06">Jun 2021</time> – <time datetime="2023-09">Sep 2023</time></p>
+            <p class="meta">Senior Data Engineer</p>
           </header>
-          <ul>
-            <li>Led the migration of Teradata batch workloads to Snowflake, re-modeling the transformation layer in dbt.</li>
-            <li>Re-architected real-time POS ingestion from Mulesoft to Kafka, landing events through Snowpark and Snowflake Streams &amp; Tasks with monitoring and automatic reprocessing.</li>
-          </ul>
-          <div class="chips">
-            <button class="chip" type="button" data-tool="snowflake">Snowflake</button>
-            <button class="chip" type="button" data-tool="kafka">Kafka</button>
-            <button class="chip" type="button" data-tool="snowpark">Snowpark</button>
-            <button class="chip" type="button" data-tool="dbt">dbt</button>
-            <button class="chip" type="button" data-tool="snowpipe">Snowpipe</button>
-          </div>
+          <p class="chapter">Modernizing a national retailer's data backbone.</p>
+          <p>At a retailer this size, teams across the business read from the same sales numbers, so those numbers have to land fast and land right. I led the move of <strong>Teradata batch workloads to Snowflake</strong>, migrated legacy IBM DataStage ETL to Talend, and redesigned the modeling layer in dbt so downstream reporting became more accurate and far easier to trust.</p>
+          <p>The bigger shift was going real time. I re-architected <strong>point-of-sale ingestion from point-to-point Mulesoft flows to Kafka</strong>, landing live transactions through Snowpipe, Snowpark, and Streams &amp; Tasks with error monitors and automatic reprocessing, so a bad load gets caught and replayed instead of quietly skewing a dashboard. CDC, semi-structured JSON ingestion, Git and Jenkins CI/CD, and catalog-driven governance rounded out a platform built to be audited, not just queried.</p>
         </article>
       </li>
 
@@ -854,18 +818,10 @@ nav { margin-left: auto; }
         <article class="role filterable" data-tools="azure databricks spark snowflake powerbi w-integrate">
           <header>
             <h3>Inspire Brands</h3>
-            <p class="meta">Data Engineer · <time datetime="2021-01">Jan 2021</time> – <time datetime="2021-05">May 2021</time></p>
+            <p class="meta">Data Engineer</p>
           </header>
-          <ul>
-            <li>Orchestrated Azure Data Factory pipelines unifying in-store transaction and online sales data, with CI/CD for PySpark and Snowflake deployments.</li>
-            <li>Built PySpark frameworks on Databricks for forecasting, customer segmentation, and product-affinity analysis, feeding Snowflake models for retail analytics.</li>
-          </ul>
-          <div class="chips">
-            <button class="chip" type="button" data-tool="azure">Azure Data Factory</button>
-            <button class="chip" type="button" data-tool="databricks">Databricks</button>
-            <button class="chip" type="button" data-tool="spark">PySpark</button>
-            <button class="chip" type="button" data-tool="snowflake">Snowflake</button>
-          </div>
+          <p class="chapter">One view of sales across restaurants and digital ordering.</p>
+          <p>Inspire runs several restaurant brands, with sales arriving from in-store transaction systems and online ordering platforms. I built the <strong>Azure Data Factory pipelines</strong> that brought those sources together, PySpark frameworks on Databricks for <strong>sales forecasting, customer segmentation, and product-affinity analysis</strong>, and the Snowflake schemas behind Power BI dashboards that gave the business near-real-time visibility into revenue, margin, and trends. CI/CD through Azure Pipelines kept every PySpark and Snowflake deployment repeatable.</p>
         </article>
       </li>
 
@@ -873,20 +829,11 @@ nav { margin-left: auto; }
         <article class="role filterable" data-tools="csharp azure dynamics365 sqlserver spark w-integrate">
           <header>
             <h3>Wipro Technologies</h3>
-            <p class="meta">Project Engineer · <time datetime="2014-08">Aug 2014</time> – <time datetime="2019-08">Aug 2019</time></p>
+            <p class="meta">Project Engineer</p>
           </header>
-          <ul>
-            <li>Built features for Dynamics 365 resource scheduling modules using C# and Azure.</li>
-            <li>Designed SQL Server staging and data-lake objects with source-to-target mappings, and ingested data into HDFS with Hive and MapReduce.</li>
-            <li>Supported Spark production workloads on call and mentored junior engineers.</li>
-          </ul>
-          <div class="chips">
-            <button class="chip" type="button" data-tool="csharp">C#</button>
-            <button class="chip" type="button" data-tool="azure">Azure</button>
-            <button class="chip" type="button" data-tool="dynamics365">Dynamics 365</button>
-            <button class="chip" type="button" data-tool="sqlserver">SQL Server</button>
-            <button class="chip" type="button" data-tool="spark">Spark</button>
-          </div>
+          <p class="chapter">Where it started: shipping product, then learning data.</p>
+          <p>I began as a product engineer on Microsoft Dynamics 365, building features in C# and Azure for <strong>Resource Scheduling Optimization</strong>, the module that automatically matches people and resources to work. It taught me early to build for users who never see the code.</p>
+          <p>Those same years were my grounding in data: SQL Server staging and data-lake models with source-to-target mappings for every fact and dimension, Hadoop ingestion with Hive and MapReduce, Azure Data Factory orchestration, and Tableau dashboards for the data science team. Carrying the on-call pager for production Spark jobs, and mentoring the engineers who joined after me, taught me what "production-ready" really means.</p>
         </article>
       </li>
 
@@ -957,8 +904,10 @@ nav { margin-left: auto; }
         <div class="chips">
           <button class="chip" type="button" data-tool="langgraph">LangChain / LangGraph</button>
           <button class="chip" type="button" data-tool="rag">RAG pipelines</button>
-          <button class="chip" type="button" data-tool="mcp">MCP agents</button>
-          <button class="chip" type="button" data-tool="vector-search">Vector search</button>
+          <button class="chip" type="button" data-tool="mcp">MCP servers &amp; agents</button>
+          <button class="chip" type="button" data-tool="vector-db">Vector databases</button>
+          <button class="chip" type="button" data-tool="embeddings">Embeddings</button>
+          <button class="chip" type="button" data-tool="llm">LLM integration &amp; tool calling</button>
         </div>
       </section>
       <section class="cap-group">
@@ -1088,7 +1037,7 @@ nav { margin-left: auto; }
     </div>
 
     <!-- ========== Showcase 1: Agentic API Orchestrator ========== -->
-    <article class="showcase filterable" id="orchestrator" data-tools="langgraph python fastapi pydantic mongodb react typescript oauth2 openapi graphql vector-search rag pytest w-users w-e2e w-integrate w-trust">
+    <article class="showcase filterable" id="orchestrator" data-tools="langgraph python fastapi pydantic mongodb react typescript oauth2 openapi graphql vector-db embeddings llm rag pytest w-users w-e2e w-integrate w-trust">
       <header class="sc-head">
         <span class="sc-tag">Multi-agent · Full-stack</span>
         <h3>Agentic API Orchestrator</h3>
@@ -1099,7 +1048,7 @@ nav { margin-left: auto; }
           <button class="chip" type="button" data-tool="fastapi">FastAPI</button>
           <button class="chip" type="button" data-tool="pydantic">Pydantic</button>
           <button class="chip" type="button" data-tool="mongodb">MongoDB</button>
-          <button class="chip" type="button" data-tool="vector-search">Vector search</button>
+          <button class="chip" type="button" data-tool="vector-db">Vector database</button>
           <button class="chip" type="button" data-tool="rag">RAG</button>
           <button class="chip" type="button" data-tool="react">React + TypeScript</button>
           <button class="chip" type="button" data-tool="openapi">OpenAPI</button>
@@ -1376,10 +1325,6 @@ Generated from approved artifacts only.</pre>
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3zM9.5 9.5h3.8v1.6h.06c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.77 2.65 4.77 6.1V21h-4v-5.1c0-1.22-.02-2.79-1.7-2.79-1.7 0-1.96 1.33-1.96 2.7V21h-4z"/></svg>
           <span><span class="label">LinkedIn</span><span class="val">linkedin.com/in/akhil172</span></span>
         </a></li>
-        <li><a href="resume.pdf" download>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M12 12v6m0 0l-3-3m3 3l3-3"/></svg>
-          <span><span class="label">Resume</span><span class="val">Download PDF</span></span>
-        </a></li>
       </ul>
     </div>
   </div>
@@ -1444,28 +1389,6 @@ Generated from approved artifacts only.</pre>
       el.classList.add("reveal");
       revealIO.observe(el);
     });
-  }
-
-  /* ---------- "10+ years" counter ---------- */
-  var counter = $(".counter");
-  var plus = $(".stat .plus");
-  if (counter && !reduce && hasIO) {
-    var target = parseInt(counter.getAttribute("data-count"), 10) || 0;
-    counter.textContent = "0";
-    plus.classList.add("pending");
-    var countIO = new IntersectionObserver(function (entries) {
-      if (!entries[0].isIntersecting) return;
-      countIO.disconnect();
-      var start = null, dur = 1400;
-      function step(ts) {
-        if (start === null) start = ts;
-        var p = Math.min((ts - start) / dur, 1);
-        counter.textContent = Math.round((1 - Math.pow(1 - p, 3)) * target);
-        if (p < 1) requestAnimationFrame(step); else plus.classList.remove("pending");
-      }
-      requestAnimationFrame(step);
-    }, { threshold: 0.6 });
-    countIO.observe(counter);
   }
 
   /* ---------- Hero pipeline: packets ---------- */

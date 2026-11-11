@@ -16,7 +16,7 @@ Confirmed FDE evidence (only claim these): scoping with business/sales stakehold
 shipping tools non-engineers use. NOT client-facing delivery at Wipro. Agentic AI work is recent only;
 don't imply it in earlier roles.
 Contact: tabjulaakhil@gmail.com | linkedin.com/in/akhil172 (no phone number).
-Resume file: resume.pdf (same folder).
+No resume download on the site (resume is tailored per application and shared directly).
 
 ## HERO — SIGNATURE ANIMATION
 Animated data pipeline: glowing packets flowing
@@ -25,10 +25,10 @@ cycles (STAGE_TOOLS in the JS) so the hero isn't tied to one stack. Tooltips des
 No section-level instruction captions or disclaimers ("hover/click to …", "generic examples only");
 interactions should be self-evident. One short line inside an interactive demo is fine.
 Hovering a stage shows a short tooltip on how I've used it.
-Name, title, one-line positioning, buttons: Download Resume, LinkedIn.
+Name, title, one-line positioning, buttons: Email me, LinkedIn.
 
 ## ABOUT
-Short bio. Personal touch, one plain line with no metaphor: I collect coins, currency, and travel mugs.
+Short narrative bio (AI-forward: data layer AI runs on). No stat counter, no personal-hobby line (both removed on request).
 
 ## HOW I WORK (#approach, between About and Experience)
 Bridges the DE and FDE audiences. Four strength cards (Start with the user's problem,
@@ -36,13 +36,12 @@ Own it end to end, Integrate messy real systems, Make it trustworthy). "Zero to 
 (`data-tool="w-*"`, `data-label` sets the filter-bar text) that reuses the chip filter; add the `w-*`
 slug to a role/project's `data-tools` only when that item truly demonstrates the strength.
 
-## EXPERIENCE (company-based timeline; 2–3 impact lines + 4–6 tool chips each)
+## EXPERIENCE ("The story so far": company timeline told as a story, NOT bullets. Each role = title (no dates), an accent `.chapter` one-liner, 1–3 short business-focused paragraphs. No per-role chips; `data-tools` lists the full stack so capability chips still highlight it.)
 - Coca-Cola Southwest Beverages, Oct 2023–Present: joined as sole data engineer,
   built the function and now lead a team of 4 within the Advanced Analytics org.
-  Chips: Databricks, Snowflake, dbt, Kafka, LangGraph
+  Also: suggested-order engine, trade-promotion analytics, CARTO/H3, and recent agentic AI (agents, MCP servers, RAG + vector DB), described generically, never linked to the showcases.
 - Victoria's Secret, Jun 2021–Sep 2023: led Teradata→Snowflake migration;
   re-architected real-time POS ingestion from Mulesoft to Kafka.
-  Chips: Snowflake, Kafka, Snowpark, dbt
 - Inspire Brands, Jan–May 2021
 - Wipro Technologies, Aug 2014–Aug 2019: built features for Dynamics 365
   scheduling modules with C# and Azure.
@@ -56,7 +55,7 @@ slug to a role/project's `data-tools` only when that item truly demonstrates the
 - Transformation & Modeling: dbt, Spark, Snowpark, Kimball, Data Vault
 - Data Quality & Governance: Great Expectations, RBAC, dynamic masking,
   column-level security
-- AI & ML Data: LangChain/LangGraph, RAG pipelines, MCP agents, vector search
+- AI & ML Data: LangChain/LangGraph, RAG pipelines, MCP servers & agents, vector databases, embeddings, LLM integration & tool calling
 - Cloud & DevOps: Azure, AWS (S3, Glue, Lambda, Batch), Docker, Kubernetes,
   GitHub Actions, Databricks Asset Bundles
 - Apps & Delivery: Python, FastAPI, React + TypeScript, REST / GraphQL APIs, OAuth2, Power BI
@@ -76,11 +75,11 @@ used it and dims the rest; clicking again resets.
 Include a simple animated SVG architecture diagram in each.
 
 ## CONTACT
-Email + LinkedIn + resume download.
+Email + LinkedIn (no resume download).
 
 ## STYLE
 Modern dark theme with light/dark toggle. Subtle scroll-reveal animations,
-hover lift on cards, animated "10+ years" counter. Tasteful, not flashy.
+hover lift on cards. Tasteful, not flashy.
 Fully responsive (looks great on phones). Respect prefers-reduced-motion.
 Fast load.
 
@@ -123,9 +122,8 @@ Confidentiality rules for these projects (strict):
 - Stage 2 (styling): done (theme tokens on :root / [data-theme="light"], toggle persists to localStorage;
   horizontal pipeline SVG `.pipe-h` on desktop, vertical `.pipe-v` under 720px)
 - Stage 3 (animations/interactivity): done. All JS is one IIFE at the end of index.html: theme toggle,
-  scroll reveal (IntersectionObserver), 10+ counter, rAF pipeline packets along `.links path`,
+  scroll reveal (IntersectionObserver), rAF pipeline packets along `.links path`,
   stage tooltips (hover / focus-visible / tap), chip filter driven by `data-tool` on chips and
-  `data-tools` on `.filterable` roles/projects, floating `.filter-bar`. Reduced motion → static packets, no reveal/counter.
+  `data-tools` on `.filterable` roles/projects, floating `.filter-bar`. Reduced motion → static packets, no reveal.
   To add a tool: give the chip a `data-tool` slug and add that slug to the relevant `data-tools` lists.
-- `resume.pdf` (repo root) is exported from `sources/AkhilTabjula_Resume.docx` via Word with the phone
-  number stripped from the contact line. Re-export the same way whenever the .docx changes.
+- No `resume.pdf` in the repo (removed Nov 2026; the site is public, and the resume is tailored per application and shared directly). Don't re-add it.
