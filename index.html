@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Akhil Tabjula | Data &amp; AI Engineer</title>
-<meta name="description" content="Akhil Tabjula — Data &amp; AI Engineer with 10+ years building streaming, lakehouse, and ML data platforms on Azure, Databricks, and Snowflake, and shipping agentic AI end to end.">
+<meta name="description" content="Akhil Tabjula — Data &amp; AI Engineer with 10+ years building streaming, lakehouse, and ML data platforms on Databricks and Snowflake across Azure and AWS, and shipping agentic AI end to end.">
 <meta name="author" content="Akhil Tabjula">
 <meta name="color-scheme" content="dark light">
 <link rel="canonical" href="https://atabjula-dev.github.io/">
@@ -212,7 +212,9 @@ nav { margin-left: auto; }
 .tooltip strong { display: block; color: var(--accent); margin-bottom: .2rem; font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; }
 
 /* ================= About ================= */
-.about-grid { max-width: 72ch; }
+.about-grid > div { display: grid; gap: 0 3rem; }
+.about-grid .section-head { grid-column: 1 / -1; }
+@media (min-width: 900px) { .about-grid > div { grid-template-columns: 1fr 1fr; } }
 .about-grid p { color: var(--muted); font-size: 1.1rem; }
 .about-grid p strong { color: var(--text); font-weight: 600; }
 
@@ -663,7 +665,7 @@ nav { margin-left: auto; }
   <div class="wrap">
     <p class="eyebrow">Data &amp; AI Engineer</p>
     <h1>Akhil Tabjula</h1>
-    <p class="lede">I build streaming, lakehouse, and ML data platforms on Azure, Databricks, and Snowflake, then ship agentic AI on top of them: end to end, working directly with the people who use it.</p>
+    <p class="lede">I build streaming, lakehouse, and ML data platforms on Databricks and Snowflake, across Azure and AWS, then ship agentic AI on top of them: end to end, working directly with the people who use it.</p>
     <div class="cta-row">
       <a class="btn btn-primary" href="mailto:tabjulaakhil@gmail.com">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
@@ -732,7 +734,7 @@ nav { margin-left: auto; }
         <p class="tooltip" role="tooltip" id="tip-0" hidden><strong>Ingest</strong> POS, ERP, SaaS APIs, databases, and third-party vendor feeds through Fivetran, Azure Data Factory, Talend, Auto Loader, and custom REST connectors, each with its own contract and failure modes.</p>
         <p class="tooltip" role="tooltip" id="tip-1" hidden><strong>Stream</strong> Re-architected real-time POS ingestion from point-to-point Mulesoft flows to Kafka, with Snowpipe, Streams &amp; Tasks, and Spark Structured Streaming for low-latency loads.</p>
         <p class="tooltip" role="tooltip" id="tip-2" hidden><strong>Process</strong> From Hive and MapReduce to PySpark on Databricks, Snowpark, and dbt: frameworks for forecasting, segmentation, and ML feature pipelines.</p>
-        <p class="tooltip" role="tooltip" id="tip-3" hidden><strong>Serve</strong> Led a Teradata→Snowflake migration, and modeled warehouses and lakehouses on Snowflake, Delta Lake, Redshift, and Azure SQL with governance built in.</p>
+        <p class="tooltip" role="tooltip" id="tip-3" hidden><strong>Serve</strong> Moved Teradata workloads to Snowflake, and modeled warehouses and lakehouses on Snowflake, Delta Lake, Redshift, and Azure SQL with governance built in.</p>
         <p class="tooltip" role="tooltip" id="tip-4" hidden><strong>Consume</strong> Power BI KPI layers, suggested-order recommendation models, and agentic AI apps that let people ask questions in plain English and get answers grounded in real data.</p>
       </div>
     </figure>
@@ -744,8 +746,8 @@ nav { margin-left: auto; }
   <div class="wrap about-grid">
     <div>
       <div class="section-head"><span class="kicker">About</span><h2>The data layer AI actually runs on</h2></div>
-      <p>An AI product is only as good as the data underneath it. That's where I've spent the last decade: from Hive and MapReduce to Spark and Databricks, from nightly batch to real-time Kafka streams, and now to <strong>agents that reason over governed data, call real systems, and explain the answer in plain language</strong>.</p>
-      <p>Today I lead a data engineering team inside an Advanced Analytics organization. The work I like most starts with the business: pin down the real problem, prototype fast, demo early, and carry what works into production with the guardrails it needs. RAG pipelines, MCP servers, and LangGraph agents now sit in the same toolkit as Spark and dbt, and the bar is the same for all of them: <strong>reliable, governed, and trusted by the people who use it</strong>.</p>
+      <p>An AI product is only as good as the data underneath it. That's where I've spent the last decade: from Hive and MapReduce to Spark and Databricks, from nightly batch to real-time Kafka streams, and now to agents that reason over governed data, call real systems, and explain the answer in plain language.</p>
+      <p>The work I like most starts with the business: pin down the real problem, prototype fast, demo early, and carry what works into production with the guardrails it needs. RAG pipelines, MCP servers, and LangGraph agents now sit in the same toolkit as Spark and dbt, and the bar is the same for all of them: reliable, governed, and trusted by the people who use it.</p>
     </div>
   </div>
 </section>
@@ -793,12 +795,12 @@ nav { margin-left: auto; }
         <article class="role filterable" data-tools="databricks snowflake dbt spark azure python powerbi langgraph rag mcp vector-db embeddings llm carto h3 w-users w-e2e w-integrate">
           <header>
             <h3>Coca-Cola Southwest Beverages</h3>
-            <p class="meta">Senior Data Engineer · Team lead</p>
+            <p class="meta">Data Platforms &amp; AI</p>
           </header>
-          <p class="chapter">Building a data function from zero, then putting AI in front of the business.</p>
-          <p>I joined as the only data engineer and built the function from the ground up: the platform, the standards, and the team of four I now lead inside the Advanced Analytics org. The first job was a foundation people could rely on. That meant Databricks and Snowflake pipelines, dbt models, and Azure Functions and REST APIs wiring the lake, Azure SQL, Dataverse, and Power BI together so sales and operations finally looked at the same numbers.</p>
-          <p>On that foundation we ship tools the business uses every day. I built the data layer behind a <strong>real-time suggested-order engine</strong> that blends sales history, ML predictions, and external event signals; led <strong>trade-promotion analytics</strong> with predictive allocation models; and brought <strong>location intelligence</strong> to the table with CARTO and H3.</p>
-          <p>The newest chapter is <strong>agentic AI</strong>: LangGraph agents that automate multi-step analysis and answer business questions in plain language, <strong>MCP servers</strong> that give those agents controlled access to data and internal tools, and <strong>RAG pipelines</strong> that embed documentation and metadata into a vector database so every answer stays grounded in a real source, with an eye on token cost. I scope this work directly with sales and business stakeholders, demo to leadership early, and carry what works to production.</p>
+          <p class="chapter">A data foundation the business can rely on, then AI on top of it.</p>
+          <p>The first priority here was a data foundation people could rely on. That meant Databricks and Snowflake pipelines, dbt models, shared engineering standards, and Azure Functions and REST APIs wiring the lake, Azure SQL, Dataverse, and Power BI together so sales and operations finally looked at the same numbers.</p>
+          <p>On that foundation we ship tools the business uses every day. I built the data layer behind a real-time suggested-order engine that blends sales history, ML predictions, and external event signals; led trade-promotion analytics with predictive allocation models; and brought location intelligence to the table with CARTO and H3.</p>
+          <p>The newest chapter is agentic AI: LangGraph agents that automate multi-step analysis and answer business questions in plain language, MCP servers that give those agents controlled access to data and internal tools, and RAG pipelines that embed documentation and metadata into a vector database so every answer stays grounded in a real source, with an eye on token cost. I scope this work directly with sales and business stakeholders, demo to leadership early, and carry what works to production.</p>
         </article>
       </li>
 
@@ -809,8 +811,8 @@ nav { margin-left: auto; }
             <p class="meta">Senior Data Engineer</p>
           </header>
           <p class="chapter">Modernizing a national retailer's data backbone.</p>
-          <p>At a retailer this size, teams across the business read from the same sales numbers, so those numbers have to land fast and land right. I led the move of <strong>Teradata batch workloads to Snowflake</strong>, migrated legacy IBM DataStage ETL to Talend, and redesigned the modeling layer in dbt so downstream reporting became more accurate and far easier to trust.</p>
-          <p>The bigger shift was going real time. I re-architected <strong>point-of-sale ingestion from point-to-point Mulesoft flows to Kafka</strong>, landing live transactions through Snowpipe, Snowpark, and Streams &amp; Tasks with error monitors and automatic reprocessing, so a bad load gets caught and replayed instead of quietly skewing a dashboard. CDC, semi-structured JSON ingestion, Git and Jenkins CI/CD, and catalog-driven governance rounded out a platform built to be audited, not just queried.</p>
+          <p>At a retailer this size, teams across the business read from the same sales numbers, so those numbers have to land fast and land right. I worked on moving Teradata batch workloads to Snowflake, migrating legacy IBM DataStage ETL to Talend, and redesigning the modeling layer in dbt so downstream reporting became more accurate and easier to trust.</p>
+          <p>The bigger shift was going real time. I re-architected point-of-sale ingestion from point-to-point Mulesoft flows to Kafka, landing live transactions through Snowpipe, Snowpark, and Streams &amp; Tasks with error monitors and automatic reprocessing, so a bad load gets caught and replayed instead of quietly skewing a dashboard. CDC, semi-structured JSON ingestion, Git and Jenkins CI/CD, and catalog-driven governance rounded out a platform built to be audited, not just queried.</p>
         </article>
       </li>
 
@@ -821,7 +823,7 @@ nav { margin-left: auto; }
             <p class="meta">Data Engineer</p>
           </header>
           <p class="chapter">One view of sales across restaurants and digital ordering.</p>
-          <p>Inspire runs several restaurant brands, with sales arriving from in-store transaction systems and online ordering platforms. I built the <strong>Azure Data Factory pipelines</strong> that brought those sources together, PySpark frameworks on Databricks for <strong>sales forecasting, customer segmentation, and product-affinity analysis</strong>, and the Snowflake schemas behind Power BI dashboards that gave the business near-real-time visibility into revenue, margin, and trends. CI/CD through Azure Pipelines kept every PySpark and Snowflake deployment repeatable.</p>
+          <p>Inspire runs several restaurant brands, with sales arriving from in-store transaction systems and online ordering platforms. I built the Azure Data Factory pipelines that brought those sources together, PySpark frameworks on Databricks for sales forecasting, customer segmentation, and product-affinity analysis, and the Snowflake schemas behind Power BI dashboards that gave the business near-real-time visibility into revenue, margin, and trends. CI/CD through Azure Pipelines kept every PySpark and Snowflake deployment repeatable.</p>
         </article>
       </li>
 
@@ -832,7 +834,7 @@ nav { margin-left: auto; }
             <p class="meta">Project Engineer</p>
           </header>
           <p class="chapter">Where it started: shipping product, then learning data.</p>
-          <p>I began as a product engineer on Microsoft Dynamics 365, building features in C# and Azure for <strong>Resource Scheduling Optimization</strong>, the module that automatically matches people and resources to work. It taught me early to build for users who never see the code.</p>
+          <p>I began as a product engineer on Microsoft Dynamics 365, building features in C# and Azure for Resource Scheduling Optimization, the module that automatically matches people and resources to work. It taught me early to build for users who never see the code.</p>
           <p>Those same years were my grounding in data: SQL Server staging and data-lake models with source-to-target mappings for every fact and dimension, Hadoop ingestion with Hive and MapReduce, Azure Data Factory orchestration, and Tableau dashboards for the data science team. Carrying the on-call pager for production Spark jobs, and mentoring the engineers who joined after me, taught me what "production-ready" really means.</p>
         </article>
       </li>
@@ -841,7 +843,7 @@ nav { margin-left: auto; }
         <article>
           <header><h3>Education</h3></header>
           <ul>
-            <li><strong>M.S. Data Science</strong> — University of North Texas</li>
+            <li>M.S. Data Science</strong> — University of North Texas</li>
             <li><strong>B.Tech</strong> — KL University</li>
           </ul>
         </article>
